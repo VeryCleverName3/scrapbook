@@ -10,31 +10,36 @@ export default function Post({
   attachments,
   description,
   tags,
+  index,
 }) {
-  // Assuming you have a function to format date and time
-
   let trimmedTags = tags;
   let moreTags = 0;
   if (trimmedTags && trimmedTags.length > 3) {
     moreTags = tags.length - 3;
     trimmedTags = tags.slice(0, 3);
   }
-  let tagsHTML = trimmedTags.map((user) => { return <Tag user={user} />});
+  let tagsHTML = trimmedTags.map((user) => {
+    return <Tag user={user} />;
+  });
 
   let moretagString = "+" + moreTags.toString();
   if (moreTags > 0) {
-    moreTags = 
-    (<div className="more-tag-bubble">
-      <div className="more-tag-text">
-        {moretagString}
+    moreTags = (
+      <div className="more-tag-bubble">
+        <div className="more-tag-text">{moretagString}</div>
       </div>
-    </div>);
+    );
   } else {
-    moreTags = (<div></div>);
+    moreTags = <div></div>;
   }
-  
+  let backgroundColors = ["#E5BBFF", "#D5D1FF", "#D1E3FF"];
   return (
-    <div className="post">
+    <div
+      className="post"
+      style={{
+        backgroundColor: backgroundColors[index % backgroundColors.length],
+      }}
+    >
       <div className="post-header">
         <div className="post-user-info-wrapper">
           <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
