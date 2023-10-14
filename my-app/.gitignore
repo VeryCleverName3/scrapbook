@@ -11,6 +11,8 @@
 # production
 /build
 
+/server/meerkatDB
+
 # misc
 .DS_Store
 .env.local
