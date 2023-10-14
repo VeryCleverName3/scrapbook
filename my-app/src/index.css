@@ -51,6 +51,25 @@ code {
   width: 100px;
   border-radius: 15px;
   display: flex;
+  
+}
+
+.more-tag-bubble {
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+
+}
+
+.more-tag-text {
+  text-align: left;
+  color: #D5D1FF;
+  font-weight: 700;
+  font-size: 12px;
 }
 
 .tag-left-content .tag-left-image {

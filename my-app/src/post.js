@@ -13,6 +13,26 @@ export default function Post({
 }) {
   // Assuming you have a function to format date and time
 
+  let trimmedTags = tags;
+  let moreTags = 0;
+  if (trimmedTags && trimmedTags.length > 3) {
+    moreTags = tags.length - 3;
+    trimmedTags = tags.slice(0, 3);
+  }
+  let tagsHTML = trimmedTags.map((user) => { return <Tag user={user} />});
+
+  let moretagString = "+" + moreTags.toString();
+  if (moreTags > 0) {
+    moreTags = 
+    (<div className="more-tag-bubble">
+      <div className="more-tag-text">
+        {moretagString}
+      </div>
+    </div>);
+  } else {
+    moreTags = (<div></div>);
+  }
+  
   return (
     <div className="post">
       <div className="post-header">
@@ -49,7 +69,8 @@ export default function Post({
         {/* You can render other content of the post here */}
       </div>
       <div className="tag-container">
-        <Tag user={user} />
+        {tagsHTML}
+        {moreTags}
       </div>
       <div className="post-footer">
         <div className="tagged-users">
