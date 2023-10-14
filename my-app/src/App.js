@@ -3,6 +3,8 @@ import "./App.css";
 import Header from "./header";
 import Post from "./post";
 import Tag from "./tag"
+import MainPage from "./components/mainPage.js";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const dummyUser = {
   username: "john_doe",
@@ -24,18 +26,14 @@ const dummyPost = {
 
 function App() {
   return (
-    <>
-      <Header attachment={"https://ih1.redbubble.net/image.751252540.8766/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"}/>
-      <Post
-        user={dummyUser}
-        location={dummyPost.location}
-        date={dummyPost.date}
-        attachments={dummyPost.attachments}
-        tags={dummyPost.tags}
-      />
-      <Tag user={dummyUser}/>
-    </>
-    
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />}>
+        </Route>
+        <Route path="/test" element={<textarea value="yo" />}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
