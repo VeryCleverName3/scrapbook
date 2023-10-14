@@ -115,7 +115,7 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
   }
 
   updateDatabase();
-  res.send("<script>window.location = 'http://localhost:3000'</script>");
+  res.send("<script>window.location = 'http://scrapbookgeorgia.tech'</script>");
 });
 
 app.get("/getPost/:id", (req, res) => {
@@ -123,16 +123,20 @@ app.get("/getPost/:id", (req, res) => {
 });
 
 app.get("/postIdsFor/:userId", (req, res) => {
-  if (users[req.params.userId]) {
-    let postIds = [];
-    for (let i of users[req.params.userId].posts) {
-      postIds.push(i.id);
-    }
+    let alreadySeen = {};
+    if (users[req.params.userId]) {
+        let postIds = [];
+        for (let i of users[req.params.userId].posts) {
+            if(alreadySeen[i.id] == undefined){
+                postIds.push(i.id);
+                alreadySeen[i.id] = true;
+            }
+        }
 
-    res.send(JSON.stringify(postIds));
-  } else {
-    res.send("[]");
-  }
+        res.send(JSON.stringify(postIds));
+    } else {
+        res.send("[]");
+    }
 });
 
 app.listen(8080);
