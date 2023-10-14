@@ -36,3 +36,89 @@
     transform: rotate(360deg);
   }
 }
+
+/* CSS for the Post component */
+.post {
+  padding: 10px;
+  margin: 10px;
+  background-color: #d5d1ff;
+
+  color: #474747;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.post-content {
+  border-radius: 20%;
+}
+
+.post-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.user-info p {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.post-footer {
+  margin-top: 10px;
+}
+
+.tagged-users p {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.carousel-root {
+  border-radius: 10px; /* Adds rounded edges to the image carousel */
+  box-shadow: none !important; /* Removes the drop shadow from the image carousel */
+
+  /* Remove the shadow from the circular buttons */
+  .thumbs-wrapper .thumbs .thumb {
+    box-shadow: none !important;
+  }
+}
+/* Media query for non-phone screens (e.g., screens wider than 768px) */
+@media (min-width: 768px) {
+  .post {
+    width: 45%; /* Set the width to 50% for non-phone screens */
+  }
+  .tagged-users {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-header img {
+    width: 20px; /* Decrease the size of the profile photo */
+    height: 20px; /* Decrease the size of the profile photo */
+  }
+
+  .user-info h3 {
+    font-size: 14px; /* Decrease the font size of the username */
+  }
+
+  .info-mobile {
+    display: none;
+  }
+
+  .tagged-users p {
+    font-size: 10px;
+  }
+}

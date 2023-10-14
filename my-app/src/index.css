@@ -43,3 +43,31 @@ code {
   border-radius: 50%; /* This makes the image circular */
   object-fit: cover; /* Ensures the image covers the entire circular area */
 }
+
+.user-tag {
+  background-color: white;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100px;
+  border-radius: 15px;
+  display: flex;
+}
+
+.tag-left-content .tag-left-image {
+  width: 20px; /* Adjust the width of the image as needed */
+  height: 20px; /* Set the height to match the width for a circular shape */
+  border-radius: 50%; /* This makes the image circular */
+  object-fit: cover; /* Ensures the image covers the entire circular area */
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+.tag-right-content {
+  text-align: left;
+  color: #D5D1FF;
+  font-weight: 700;
+  font-size: 10px;
+}
+
