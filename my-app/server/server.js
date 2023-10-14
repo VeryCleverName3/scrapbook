@@ -14,6 +14,7 @@ let users = {};
 users = JSON.parse(fs.readFileSync(`${__dirname}/meerkatDB/text/users.JSON`));
 posts = JSON.parse(fs.readFileSync(`${__dirname}/meerkatDB/text/posts.JSON`));
 let numPosts = 0;
+numPosts = Object.keys(posts).length;
 
 function updateDatabase() {
   fs.writeFileSync(
@@ -83,7 +84,7 @@ content: text content of post
 images: list of images added in the post
 includedUsers: other users included in the post
 userCookie: username of the poster
-
+location: Klaus College of Computing
 */
 
 //where user creates a post
@@ -112,8 +113,30 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
     }
   }
 
+<<<<<<< HEAD
   updateDatabase();
   res.send("yo!");
+=======
+    for(let photo of photos){
+        photo.url = `images/${photo.filename}`;
+    }
+
+    let post = {text, photos};
+
+
+    post.text.time = Date.now();
+    post.id = numPosts++;
+    posts[post.id] = post;
+
+    for(let i of includedUsers){
+        if(users[i] != undefined){
+            users[i].posts.push(post);
+        }
+    }
+
+    updateDatabase();
+    res.send("yo!");
+>>>>>>> 26d38c3b2b5eed0984fa7457457e948036cc9ea1
 });
 
 app.get("/getPost/:id", (req, res) => {
@@ -121,12 +144,25 @@ app.get("/getPost/:id", (req, res) => {
 });
 
 app.get("/postIdsFor/:userId", (req, res) => {
+<<<<<<< HEAD
   let postIds = [];
   for (let i of users[req.params.userId].posts) {
     postIds.push(i.id);
   }
 
   res.send(JSON.stringify(postIds));
+=======
+    if(users[req.params.userId]){
+        let postIds = [];
+        for(let i of users[req.params.userId].posts){
+            postIds.push(i.id);
+        }
+
+        res.send(JSON.stringify(postIds));
+    } else {
+        res.send("[]");
+    }
+>>>>>>> 26d38c3b2b5eed0984fa7457457e948036cc9ea1
 });
 
 app.listen(8080);

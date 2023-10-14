@@ -34,6 +34,7 @@ export default function SignUpPage() {
     } else {
       setError("Passwords do not match."); // Set an error message
     }
+
   }
 
   return (
