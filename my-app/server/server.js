@@ -133,6 +133,8 @@ app.get("/postIdsFor/:userId", (req, res) => {
             }
         }
 
+        postIds.sort((a,b) => {return b - a});
+
         res.send(JSON.stringify(postIds));
     } else {
         res.send("[]");
