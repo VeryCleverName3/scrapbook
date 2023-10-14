@@ -40,8 +40,6 @@ function App() {
         </Route>
         <Route path="/signup" element={<SignUpPage/>}>
         </Route>
-        <Route path="/signup" element={<SignUpPage/>}>
-        </Route>
         <Route path="/makePost" element={<CreatePostPage/>}>
         </Route>
       </Routes>
