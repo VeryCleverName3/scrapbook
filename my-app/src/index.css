@@ -71,3 +71,64 @@ code {
   font-size: 12px;
 }
 
+.create-post-page {
+  height: 100vh;
+  background-color: #d481e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+.create-post-page p {
+  font-size: 15px;
+  color: black;
+  font-weight: 700;
+}
+/* CSS for the custom upload button */
+.custom-file-upload {
+  border: none;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+
+/* .custom-file-upload:hover {
+  background-color: #45a049; 
+} */
+
+
+.file-upload {
+  display: none;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CSS for the cute button */
+.create-button {
+  display: inline-block;
+  background-color: white; /* Pink background color */
+  color: black; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 25px; /* Round the corners */
+  padding: 6px 12px;
+  font-size: 15px;
+  cursor: pointer; /* Add pointer cursor */
+  transition: background-color 0.3s ease;
+ 
+}
+
+.cute-button:hover {
+  background-color: #ff1493; /* Darker pink background color on hover */
+}
+
+

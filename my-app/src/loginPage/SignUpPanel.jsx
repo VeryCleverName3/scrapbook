@@ -26,6 +26,7 @@ export default function SignUpPage() {
     } else {
       console.log("passwords don't match!");
     }
+
   }
   return (
     <>

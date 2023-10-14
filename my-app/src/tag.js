@@ -1,4 +1,5 @@
 export default function Tag({user}) {
+  console.log(user);
   let name = user.username;
   if (name.length > 10) {
     name = name.substring(0, 7) + "...";

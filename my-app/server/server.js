@@ -14,6 +14,7 @@ let users = {};
 users = JSON.parse(fs.readFileSync(`${__dirname}/meerkatDB/text/users.JSON`));
 posts = JSON.parse(fs.readFileSync(`${__dirname}/meerkatDB/text/posts.JSON`));
 let numPosts = 0;
+numPosts = Object.keys(posts).length;
 
 function updateDatabase(){
     fs.writeFileSync(`${__dirname}/meerkatDB/text/users.JSON`, JSON.stringify(users));
@@ -72,7 +73,7 @@ content: text content of post
 images: list of images added in the post
 includedUsers: other users included in the post
 userCookie: username of the poster
-
+location: Klaus College of Computing
 */
 
 //where user creates a post
@@ -92,6 +93,8 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
 
     let post = {text, photos};
 
+
+    post.text.time = Date.now();
     post.id = numPosts++;
     posts[post.id] = post;
 
@@ -110,12 +113,16 @@ app.get("/getPost/:id", (req, res) => {
 });
 
 app.get("/postIdsFor/:userId", (req, res) => {
-    let postIds = [];
-    for(let i of users[req.params.userId].posts){
-        postIds.push(i.id);
-    }
+    if(users[req.params.userId]){
+        let postIds = [];
+        for(let i of users[req.params.userId].posts){
+            postIds.push(i.id);
+        }
 
-    res.send(JSON.stringify(postIds));
+        res.send(JSON.stringify(postIds));
+    } else {
+        res.send("[]");
+    }
 });
 
 app.listen(8080);
