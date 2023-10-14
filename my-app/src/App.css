@@ -127,7 +127,7 @@
     justify-content: flex-start;
     width: 200px;
   }
-  .info-mobile p{
+  .info-mobile p {
     font-size: 0.9rem;
     color: #888;
     margin: 0;
@@ -163,6 +163,5 @@
   }
   .right-post-info p {
     font-size: 10px;
-
   }
 }
