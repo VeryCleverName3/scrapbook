@@ -69,14 +69,14 @@
   margin: 0;
 }
 
-.user-info p {
+/* .user-info p {
   font-size: 0.9rem;
   color: #888;
   margin: 0;
-}
+} */
 
 .post-footer {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .right-post-info p {
@@ -91,6 +91,11 @@
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
+}
+
+.tagged-users p {
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .carousel-root {
@@ -109,6 +114,27 @@
   }
   .right-post-info {
     display: none;
+  }
+  /* .user-info {
+    display: flex;
+    justify-content: flex-start;
+  } */
+  /* .post-header {
+    display: flex;
+  } */
+  .post-user-info-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+  }
+  .info-mobile p{
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+    /* font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+    text-align: right; */
   }
 }
 
@@ -129,11 +155,12 @@
   .user-info h3 {
     font-size: 14px; /* Decrease the font size of the username */
   }
-
   .info-mobile {
     display: none;
   }
-
+  .tagged-users p {
+    font-size: 12px;
+  }
   .right-post-info p {
     font-size: 10px;
 
