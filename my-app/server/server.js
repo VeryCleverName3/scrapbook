@@ -48,18 +48,18 @@ app.get("/", (req, res) => {
 app.post("/makeUser", (req, res) => {
   let userData = req.body;
 
-  if (users[userData.username] == undefined) {
-    users[userData.username] = {
-      name: userData.username,
-      password: userData.password,
-      profilePicUrl: "",
-      posts: [],
-    };
-    res.send("good");
-  } else {
-    res.send("username already taken!!");
-  }
-  updateDatabase();
+
+    if(users[userData.username] == undefined){
+        users[userData.username] =  {name: userData.username, password: userData.password, profilePicUrl: "", posts: []}; 
+        if(posts[0]){
+            users[userData.username].posts.push(posts[0]);
+        }
+        res.send("good");
+    } else {
+        res.send("username already taken!!");
+    }
+    updateDatabase();
+
 });
 
 app.post("/login", (req, res) => {

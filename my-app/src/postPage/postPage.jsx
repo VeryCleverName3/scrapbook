@@ -34,7 +34,7 @@ export default function CreatePostPage(){
                 <label htmlFor="file-upload" className="custom-file-upload">
                     <span className="fas fa-cloud-upload-alt">Select Files</span> 
                 </label>
-                <input id="file-upload" name="images" type="file" className="file-upload" />
+                <input id="file-upload" name="images" type="file" className="file-upload" multiple/>
             </div>
 
             <div className="preview">
@@ -57,7 +57,7 @@ export default function CreatePostPage(){
             </div> 
                 
             <div className="add-tags">
-                <p className="add-tags-text"> Add Tags (Maximum of 9)<span style={{color:"red"}}>*</span></p>
+                <p className="add-tags-text"> Who's in this photo? Enter their usernames separated by commas. <span style={{color:"red"}}>*</span></p>
                 {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
                 <textarea name="includedUsers" form="create-scrap-form" className="add-tags-textbox"></textarea>
             </div>
@@ -65,7 +65,7 @@ export default function CreatePostPage(){
             <div className="add-description">
                 <p className="add-description-text">Add Description</p>
                 {/* <input ></input> */}
-                <textarea name="description" form="create-scrap-form" className="add-description-textbox"></textarea>
+                <textarea name="content" form="create-scrap-form" className="add-description-textbox"></textarea>
             </div>
 
                 
