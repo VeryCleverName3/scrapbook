@@ -3,7 +3,14 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Tag from "./tag";
 
-export default function Post({ user, location, date, attachments, tags }) {
+export default function Post({
+  user,
+  location,
+  date,
+  attachments,
+  description,
+  tags,
+}) {
   // Assuming you have a function to format date and time
 
   return (
@@ -51,6 +58,13 @@ export default function Post({ user, location, date, attachments, tags }) {
         })}
       </div>
       <div className="post-footer">
+        <div className="tagged-users">
+          <p>
+            {description.length > 100
+              ? description
+              : description.substring(0, 97) + "..."}
+          </p>
+        </div>
       </div>
 
     </div>
