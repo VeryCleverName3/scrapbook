@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #E57CFF;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+}
+
+.left-content {
+  text-align: left;
+  /* font-family: 'Roboto'; */
+  color: #ffffff;
+  font-weight: 700;
+  /* -webkit-text-stroke-width: 1px; */
+  font-size: 30px;
+}
+
+.right-content .right-image {
+  width: 50px; /* Adjust the width of the image as needed */
+  height: 50px; /* Set the height to match the width for a circular shape */
+  border-radius: 50%; /* This makes the image circular */
+  object-fit: cover; /* Ensures the image covers the entire circular area */
+}
