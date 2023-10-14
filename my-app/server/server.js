@@ -57,7 +57,7 @@ app.post("/makeUser", (req, res) => {
     };
     res.send("good");
   } else {
-    res.send("The username is already taken.");
+    res.send("username already taken!!");
   }
   updateDatabase();
 });
@@ -104,6 +104,7 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
 
   let post = { text, photos };
 
+  post.text.time = Date.now();
   post.id = numPosts++;
   posts[post.id] = post;
 
@@ -113,26 +114,8 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
     }
   }
 
-    for(let photo of photos){
-        photo.url = `images/${photo.filename}`;
-    }
-
-    let post = {text, photos};
-
-
-    post.text.time = Date.now();
-    post.id = numPosts++;
-    posts[post.id] = post;
-
-    for(let i of includedUsers){
-        if(users[i] != undefined){
-            users[i].posts.push(post);
-        }
-    }
-
-    updateDatabase();
-    res.send("yo!");
-
+  updateDatabase();
+  res.send("yo!");
 });
 
 app.get("/getPost/:id", (req, res) => {
@@ -140,23 +123,16 @@ app.get("/getPost/:id", (req, res) => {
 });
 
 app.get("/postIdsFor/:userId", (req, res) => {
-  let postIds = [];
-  for (let i of users[req.params.userId].posts) {
-    postIds.push(i.id);
-  }
-
-  res.send(JSON.stringify(postIds));
-
-    if(users[req.params.userId]){
-        let postIds = [];
-        for(let i of users[req.params.userId].posts){
-            postIds.push(i.id);
-        }
-
-        res.send(JSON.stringify(postIds));
-    } else {
-        res.send("[]");
+  if (users[req.params.userId]) {
+    let postIds = [];
+    for (let i of users[req.params.userId].posts) {
+      postIds.push(i.id);
     }
+
+    res.send(JSON.stringify(postIds));
+  } else {
+    res.send("[]");
+  }
 });
 
 app.listen(8080);
