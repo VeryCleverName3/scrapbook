@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./header";
 import Post from "./post";
-import Tag from "./tag"
+import Tag from "./tag";
 
 const dummyUser = {
   username: "john_doe",
@@ -19,13 +19,27 @@ const dummyPost = {
     "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
     "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
   ],
-  tags: ["user1", "user2", "user3"],
+  tags: [
+    dummyUser,
+    dummyUser,
+    dummyUser,
+    dummyUser,
+    dummyUser,
+    dummyUser,
+    dummyUser,
+    dummyUser,
+    dummyUser,
+  ],
 };
 
 function App() {
   return (
     <>
-      <Header attachment={"https://ih1.redbubble.net/image.751252540.8766/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"}/>
+      <Header
+        attachment={
+          "https://ih1.redbubble.net/image.751252540.8766/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+        }
+      />
       <Post
         user={dummyUser}
         location={dummyPost.location}
@@ -33,9 +47,7 @@ function App() {
         attachments={dummyPost.attachments}
         tags={dummyPost.tags}
       />
-      <Tag user={dummyUser}/>
     </>
-    
   );
 }
 

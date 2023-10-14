@@ -85,6 +85,13 @@
   margin: 0;
 }
 
+.tag-container {
+  margin-top: 5px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
 .carousel-root {
   border-radius: 10px; /* Adds rounded edges to the image carousel */
   box-shadow: none !important; /* Removes the drop shadow from the image carousel */
