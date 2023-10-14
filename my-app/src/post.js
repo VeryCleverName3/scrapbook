@@ -62,7 +62,7 @@ export default function Post({
       <div className="post-footer">
         <div className="tagged-users">
           <p>
-            {description.length > 100
+            {description.length < 250
               ? description
               : description.substring(0, 97) + "..."}
           </p>
