@@ -1,3 +1,4 @@
+import DetailedPost from "../detailedPost.js";
 import Post from "../post.js";
 import Header from "../header.js";
 import Tag from "../tag.js";
@@ -53,14 +54,20 @@ export default function MainPage() {
     "https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg";
   async function getData() {
     let postIds = JSON.parse(
-      await (await fetch(`http://${window.location.hostname}:8080/postIdsFor/${user}`)).text()
+      await (
+        await fetch(
+          `http://${window.location.hostname}:8080/postIdsFor/${user}`
+        )
+      ).text()
     );
 
     let posts = [];
-
+    let k = 0;
     for (let i of postIds) {
       let postInfo = JSON.parse(
-        await (await fetch(`http://${window.location.hostname}:8080/getPost/${i}`)).text()
+        await (
+          await fetch(`http://${window.location.hostname}:8080/getPost/${i}`)
+        ).text()
       );
 
       if (postInfo.text.userCookie) {
@@ -90,26 +97,29 @@ export default function MainPage() {
             attachments={attachments}
             description={description}
             tags={tags}
+            index={k}
           />
         );
+        k++;
       }
     }
 
     setPosts(posts);
   }
-    
 
   useEffect(() => {
     getData();
   }, []);
 
-return (
-        <>
-            <Header attachment={"https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"} makePost={true}/>
-            {posts}
-        </>
-    );
-
-
+  return (
+    <>
+      <Header
+        attachment={
+          "https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"
+        }
+        makePost={true}
+      />
+      {posts}
+    </>
+  );
 }
-

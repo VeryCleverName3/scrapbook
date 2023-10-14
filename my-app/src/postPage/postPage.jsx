@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Header from "../header.js";
+import { useState } from "react";
 
 export default function CreatePostPage(){
     let hostname = window.location.hostname;
