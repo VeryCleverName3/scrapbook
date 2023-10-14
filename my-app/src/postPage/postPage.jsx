@@ -34,7 +34,7 @@ export default function CreatePostPage(){
                 <label htmlFor="file-upload" className="custom-file-upload">
                     <span className="fas fa-cloud-upload-alt">Select Files</span> 
                 </label>
-                <input id="file-upload" name="images" type="file" className="file-upload" />
+                <input id="file-upload" name="images" type="files" className="file-upload" />
             </div>
 
             <div className="preview">
@@ -65,7 +65,7 @@ export default function CreatePostPage(){
             <div className="add-description">
                 <p className="add-description-text">Add Description</p>
                 {/* <input ></input> */}
-                <textarea name="description" form="create-scrap-form" className="add-description-textbox"></textarea>
+                <textarea name="content" form="create-scrap-form" className="add-description-textbox"></textarea>
             </div>
 
                 
