@@ -1,8 +1,10 @@
+import DetailedPost from "../detailedPost.js";
 import Post from "../post.js";
 import Header from "../header.js";
 import Tag from "../tag.js";
 
 import { useEffect, useState } from "react";
+
 
 import HomePage from "../homePage.js";
 
