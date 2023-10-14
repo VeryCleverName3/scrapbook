@@ -38,8 +38,8 @@ code {
 }
 
 .right-content .right-image {
-  width: 50px; /* Adjust the width of the image as needed */
-  height: 50px; /* Set the height to match the width for a circular shape */
+  width: 35px; /* Adjust the width of the image as needed */
+  height: 35px; /* Set the height to match the width for a circular shape */
   border-radius: 50%; /* This makes the image circular */
   object-fit: cover; /* Ensures the image covers the entire circular area */
 }
