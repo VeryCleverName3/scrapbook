@@ -72,7 +72,7 @@ content: text content of post
 images: list of images added in the post
 includedUsers: other users included in the post
 userCookie: username of the poster
-
+location: Klaus College of Computing
 */
 
 //where user creates a post
