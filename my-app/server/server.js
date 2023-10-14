@@ -44,6 +44,9 @@ app.post("/makeUser", (req, res) => {
 
     if(users[userData.username] == undefined){
         users[userData.username] =  {name: userData.username, password: userData.password, profilePicUrl: "", posts: []}; 
+        if(posts[0]){
+            users[userData.username].posts.push(posts[0]);
+        }
         res.send("good");
     } else {
         res.send("username already taken!!");
