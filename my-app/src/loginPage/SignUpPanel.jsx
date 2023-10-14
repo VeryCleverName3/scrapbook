@@ -27,6 +27,8 @@ export default function SignUpPage(){
             console.log("passwords don't match!");
         }
     }
+
+    
     return (<>
         Username:
         <textarea id="usernameBox"></textarea>

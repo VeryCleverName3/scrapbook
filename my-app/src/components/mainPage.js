@@ -1,7 +1,11 @@
 import Post from "../post.js";
 import Header from "../header.js";
 import Tag from "../tag.js"
+
+import { useEffect, useState } from "react";
+
 import HomePage from "../homePage.js";
+
 
 const dummyUser = {
     username: "john_doe",
@@ -38,9 +42,56 @@ const dummyUser = {
 
 
 export default function MainPage() {
+    let user = localStorage.username;
+
+    let [posts, setPosts] = useState([]);
+
+    //let posts = [];
+
+    let defaultPicUrl = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80";
+
+    async function getData() {
+        
+        let postIds = JSON.parse(await (await fetch(`http://localhost:8080/postIdsFor/${user}`)).text());
+
+        let posts = [];
+
+        for(let i of postIds){
+            let postInfo = JSON.parse(await (await fetch(`http://localhost:8080/getPost/${i}`)).text());
+            
+            if(postInfo.text.userCookie){
+
+                let userData = {username: postInfo.text.userCookie, profilePicture: defaultPicUrl};
+                let location = postInfo.text.location;
+                let date = new Date(1*postInfo.text.time);
+                let attachments = [];
+                for(let j of postInfo.photos){
+                    attachments.push(`http://localhost:8080/${j.url}`);
+                }
+
+                let description = postInfo.text.content;
+
+                let tags = [];
+                for(let j of postInfo.text.includedUsers.split(",")){
+                    tags.push({username: j, profilePicture: defaultPicUrl});
+                }
+
+
+                posts.push(<Post user={userData} location={location} date={date} attachments={attachments} description={description} tags={tags}/>);
+            }
+        }
+
+        setPosts(posts);
+        
+    }
+
+    useEffect(()=>{getData()}, []);
+
     return (
         <>
-            <HomePage user={dummyUser} posts={posts} />
+            <Header attachment={"https://ih1.redbubble.net/image.751252540.8766/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"}/>
+            {posts}
+            
         </>
     );
 }
