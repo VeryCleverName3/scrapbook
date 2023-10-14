@@ -2,8 +2,10 @@ let express = require("express");
 let app = express();
 let multer = require("multer");
 let fs = require("fs");
+let cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 app.use(express.static(`${__dirname}/meerkatDB/images`));
 
@@ -41,18 +43,23 @@ app.post("/makeUser", (req, res) => {
 
     if(users[userData.username] == undefined){
         users[userData.username] =  {name: userData.username, password: userData.password, profilePicUrl: "", posts: []}; 
-        res.send("ok");
+        res.send("good");
     } else {
         res.send("username already taken!!");
     }
+    updateDatabase();
 });
 
 app.post("/login", (req, res) => {
     let data = req.body;
-    if(users[data.username].password == data.password){
-        res.send("succesfully logged in");
+    if(users[data.username]){
+        if(users[data.username].password == data.password){
+            res.send("good");
+        } else {
+            res.send("badWrongPassword");
+        }
     } else {
-        res.send("bad login, maybe incorrect password but who knows");
+        res.send("badWrongUsername");
     }
 });
 
@@ -72,6 +79,10 @@ userCookie: username of the poster
 app.post("/post", postingForm.array("images", 5), (req, res, next) => {
     let photos = req.files;
     let text = req.body;
+    if(text.userCookie == ""){
+        res.send("not logged in!");
+        return;
+    }
     let includedUsers = text.includedUsers.split(","); //includedUsers is a comma separated list
     includedUsers.push(text.userCookie);
 
@@ -81,7 +92,6 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
 
     let post = {text, photos};
 
-    console.log(post);
     post.id = numPosts++;
     posts[post.id] = post;
 
