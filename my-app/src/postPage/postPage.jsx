@@ -24,15 +24,18 @@ export default function CreatePostPage(){
 
     return (<>
     <Header attachment={attachments[0]}/>
+    <div className="create-post-page-wrapper">
+    
     <div className="create-post-page">
+    
         <form id="create-scrap-form" action="http://localhost:8080/post" method="POST" encType="multipart/form-data">
-        <div className="upload">
-            <div className="upload-text">Upload Photos (Maximum of 5) <span style={{ color: "red" }}>*</span></div>
-            <label htmlFor="file-upload" className="custom-file-upload">
-                <span className="fas fa-cloud-upload-alt">Select Files</span> 
-            </label>
-            <input id="file-upload" name="images" type="file" className="file-upload" />
-        </div>
+            <div className="upload">
+                <div className="upload-text">Upload Photos (Maximum of 5) <span style={{ color: "red" }}>*</span></div>
+                <label htmlFor="file-upload" className="custom-file-upload">
+                    <span className="fas fa-cloud-upload-alt">Select Files</span> 
+                </label>
+                <input id="file-upload" name="images" type="file" className="file-upload" />
+            </div>
 
             <div className="preview">
                 <p>Preview</p>
@@ -52,7 +55,7 @@ export default function CreatePostPage(){
                         )}
                 </div>
             </div> 
-            
+                
             <div className="add-tags">
                 <p className="add-tags-text"> Add Tags (Maximum of 9)<span style={{color:"red"}}>*</span></p>
                 {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
@@ -64,17 +67,17 @@ export default function CreatePostPage(){
                 {/* <input ></input> */}
                 <textarea name="description" form="create-scrap-form" className="add-description-textbox"></textarea>
             </div>
-            
-            
+                
+                
             <div className="create-button-div">
             {/* <input type="submit" value="Create Scrap"></input> */}
             <input type="submit" value="Create Scrap" className="create-button"></input>
-
             </div>
 
             <input type="hidden" value="Klaus Advanced Computing Building" name="location"></input>
             <input type="hidden" value={userCookie} name="userCookie"></input>
         </form>
-        </div>
+    </div>
+    </div>
     </>)
 }
