@@ -10,7 +10,7 @@ import HomePage from "../homePage.js";
 const dummyUser = {
     username: "john_doe",
     profilePicture:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+      "https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg",
   };
   
 
@@ -49,7 +49,8 @@ export default function MainPage() {
     //let posts = [];
 
     let defaultPicUrl = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80";
-
+    //defaultPicUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2F29bribri29%2Fbasic-pfp%2F&psig=AOvVaw0-ZgFkx3ykAxLT6TSxQmip&ust=1697391016929000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCIio57aI9oEDFQAAAAAdAAAAABAE";
+    defaultPicUrl = "https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg";
     async function getData() {
         
         let postIds = JSON.parse(await (await fetch(`http://localhost:8080/postIdsFor/${user}`)).text());
@@ -89,7 +90,7 @@ export default function MainPage() {
 
     return (
         <>
-            <Header attachment={"https://ih1.redbubble.net/image.751252540.8766/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"}/>
+            <Header attachment={"https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"}/>
             {posts}
             
         </>
