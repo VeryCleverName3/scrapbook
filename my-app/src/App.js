@@ -6,6 +6,7 @@ import Tag from "./tag"
 import MainPage from "./components/mainPage.js";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
+
 const dummyUser = {
   username: "john_doe",
   profilePicture:
@@ -21,7 +22,11 @@ const dummyPost = {
     "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
     "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
   ],
-  tags: ["user1", "user2", "user3"],
+  tags: [
+    dummyUser,
+    dummyUser,
+    dummyUser,
+  ],
 };
 
 function App() {
