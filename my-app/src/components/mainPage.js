@@ -34,4 +34,4 @@ export default function MainPage() {
             <Tag user={dummyUser}/>
         </>
     );
-  }
+}
