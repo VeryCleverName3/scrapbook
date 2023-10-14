@@ -11,25 +11,29 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Header from "../header.js";
+import { useState } from "react";
 
-export default function CreatePostPage(){
-    let hostname = window.location.hostname;
-    let url = `http://${hostname}:8080/post`;
+export default function CreatePostPage() {
+  let hostname = window.location.hostname;
+  let url = `http://${hostname}:8080/post`;
+  let userCookie = localStorage.username;
+  let attachments = [
+    "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
+    "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
+    "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
+  ];
 
-    let userCookie = localStorage.username;
-    let attachments = [
-        "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
-        "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
-        "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
-      ]
-
-    return (<>
-    <Header attachment={attachments[0]}/>
-    <div className="create-post-page-wrapper">
-    
-    <div className="create-post-page">
-    
-        <form id="create-scrap-form" action={url} method="POST" encType="multipart/form-data">
+  return (
+    <>
+      <Header attachment={attachments[0]} />
+      <div className="create-post-page-wrapper">
+        <div className="create-post-page">
+          <form
+            id="create-scrap-form"
+            action={url}
+            method="POST"
+            encType="multipart/form-data"
+          >
             <div className="upload">
               <div className="upload-text">
                 Upload Photos (Maximum of 5){" "}

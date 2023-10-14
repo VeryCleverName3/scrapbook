@@ -10,7 +10,8 @@ export default function Post({
   date,
   attachments,
   description,
-  tags
+  tags,
+  index,
 }) {
   // Assuming you have a function to format date and time
   // let detailed = false;
@@ -25,15 +26,23 @@ export default function Post({
 
   let moretagString = "+" + moreTags.toString();
   if (moreTags > 0) {
-    moreTags = 
-    (<div className="more-tag-bubble">
-      <div className="more-tag-text">
-        {moretagString}
+    moreTags = (
+      <div className="more-tag-bubble">
+        <div className="more-tag-text">{moretagString}</div>
       </div>
-    </div>);
+    );
   } else {
-    moreTags = (<div></div>);
+    moreTags = <div></div>;
   }
+
+  let backgroundColors = ["#E5BBFF", "#D5D1FF", "#D1E3FF"];
+  return (
+    <div
+      className="post"
+      style={{
+        backgroundColor: backgroundColors[index % backgroundColors.length],
+      }}
+    >
   
   let [detailed, setDetailed] = useState(false);
 
