@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Tag from "./tag";
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Post({
   user,
@@ -21,8 +21,12 @@ export default function Post({
     moreTags = tags.length - 3;
     trimmedTags = tags.slice(0, 3);
   }
-  let tagsHTML = trimmedTags.map((user) => { return <Tag user={user} />});
-  let nontrimmedTagsHTML = tags.map((user) => { return <Tag user={user} />});
+  let tagsHTML = trimmedTags.map((user) => {
+    return <Tag user={user} />;
+  });
+  let nontrimmedTagsHTML = tags.map((user) => {
+    return <Tag user={user} />;
+  });
 
   let moretagString = "+" + moreTags.toString();
   if (moreTags > 0) {
@@ -35,6 +39,11 @@ export default function Post({
     moreTags = <div></div>;
   }
 
+  let [detailed, setDetailed] = useState(false);
+
+  const handleClick = () => {
+    setDetailed((detailed = !detailed));
+  };
   let backgroundColors = ["#E5BBFF", "#D5D1FF", "#D1E3FF"];
   return (
     <div
@@ -42,17 +51,8 @@ export default function Post({
       style={{
         backgroundColor: backgroundColors[index % backgroundColors.length],
       }}
+      onClick={handleClick}
     >
-  
-  let [detailed, setDetailed] = useState(false);
-
-
-  const handleClick = () => {
-    setDetailed(detailed = !detailed);
-  };
-
-  return (
-    <div className="post" onClick={handleClick}>
       <div className="post-header">
         <div className="post-user-info-wrapper">
           <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
@@ -94,11 +94,12 @@ export default function Post({
       <div className="post-footer">
         <div className="tagged-users">
           <p>
-            {!detailed && description &&
+            {!detailed &&
+              description &&
               (description.length < 250
                 ? description
                 : description.substring(0, 247) + "...")}
-              {detailed && description}
+            {detailed && description}
           </p>
         </div>
       </div>

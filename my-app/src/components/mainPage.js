@@ -5,7 +5,6 @@ import Tag from "../tag.js";
 
 import { useEffect, useState } from "react";
 
-
 import HomePage from "../homePage.js";
 
 const dummyUser = {
@@ -63,7 +62,7 @@ export default function MainPage() {
     );
 
     let posts = [];
-    let i = 0;
+    let k = 0;
     for (let i of postIds) {
       let postInfo = JSON.parse(
         await (
@@ -98,10 +97,10 @@ export default function MainPage() {
             attachments={attachments}
             description={description}
             tags={tags}
-            index={i}
+            index={k}
           />
         );
-        i++;
+        k++;
       }
     }
 
