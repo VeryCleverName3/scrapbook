@@ -4,6 +4,8 @@ import Header from "./header";
 import Post from "./post";
 import Tag from "./tag"
 import MainPage from "./components/mainPage.js";
+import LoginPage from "./loginPage/LoginPanel.jsx";
+import SignUpPage from "./loginPage/SignUpPanel.jsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
@@ -33,7 +35,9 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}>
         </Route>
-        <Route path="/test" element={<textarea value="yo" />}>
+        <Route path="/login" element={<LoginPage />}>
+        </Route>
+        <Route path="/signup" element={<SignUpPage/>}>
         </Route>
       </Routes>
     </BrowserRouter>

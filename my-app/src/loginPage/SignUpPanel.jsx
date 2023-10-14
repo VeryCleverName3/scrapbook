@@ -1,8 +1,10 @@
-export default function LoginPanel(){
+export default function SignUpPage(){
     async function submit(){
         let username = document.getElementById("usernameBox").value;
         let password = document.getElementById("passwordBox").value;
-            let res = await fetch("http://localhost:8080/login", {
+        let pass2 = document.getElementById("passwordBox2").value;
+        if(password == pass2){
+            let res = await fetch("http://localhost:8080/makeUser", {
                 method: "POST",
                 body: JSON.stringify({
                     username: username,
@@ -21,12 +23,17 @@ export default function LoginPanel(){
                 localStorage.username = "";
                 console.log(result);
             }
+        } else {
+            console.log("passwords don't match!");
+        }
     }
     return (<>
         Username:
         <textarea id="usernameBox"></textarea>
         Password:
         <textarea id="passwordBox"></textarea>
+        Confirm Password:
+        <textarea id="passwordBox2"></textarea>
 
         <button onClick={submit}>Submit</button>
     </>);

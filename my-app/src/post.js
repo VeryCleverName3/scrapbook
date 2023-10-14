@@ -57,9 +57,7 @@ export default function Post({
         {/* You can render other content of the post here */}
       </div>
       <div className="tag-container">
-        {tags.map((tag) => {
-          return <Tag user={tag} />;
-        })}
+        <Tag user={user} />
       </div>
       <div className="post-footer">
         <div className="tagged-users">
