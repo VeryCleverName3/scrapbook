@@ -9,14 +9,25 @@ export default function Post({ user, location, date, attachments, tags }) {
   return (
     <div className="post">
       <div className="post-header">
-        <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
-        <div className="user-info">
-          <h3>{user.username}</h3>
-          <div className="info-mobile">
+
+        <div className="post-user-info-wrapper">
+
+          <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
+          <div className="user-info">
+
+            <h3>{user.username}</h3>
+            <div className="info-mobile">
+              <p>{date.toLocaleTimeString()}</p>
+              <p>{location}</p>
+            </div>
+          </div>  
+        </div>
+
+          <div className="right-post-info">
             <p>{date.toLocaleTimeString()}</p>
             <p>{location}</p>
           </div>
-        </div>
+      
       </div>
       <div className="post-content">
         {attachments.length > 0 && (
@@ -40,11 +51,8 @@ export default function Post({ user, location, date, attachments, tags }) {
         })}
       </div>
       <div className="post-footer">
-        <div className="tagged-users">
-          <p>{date.toLocaleTimeString()}</p>
-          <p>{location}</p>
-        </div>
       </div>
+
     </div>
   );
 }
