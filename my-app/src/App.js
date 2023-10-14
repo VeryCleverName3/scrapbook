@@ -12,6 +12,7 @@ const dummyUser = {
 const dummyPost = {
   user: dummyUser,
   location: "New York, NY",
+  date: new Date(),
   attachments: [
     "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
     "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
@@ -27,6 +28,7 @@ function App() {
       <Post
         user={dummyUser}
         location={dummyPost.location}
+        date={dummyPost.date}
         attachments={dummyPost.attachments}
         tags={dummyPost.tags}
       />
