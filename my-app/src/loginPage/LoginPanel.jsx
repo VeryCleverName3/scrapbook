@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 export default function LoginPanel() {
+  const navigate = useNavigate(); // Get the navigate function
+
+  const [error, setError] = useState(""); // State for error messages
+
   async function submit() {
     let username = document.getElementById("usernameBox").value;
     let password = document.getElementById("passwordBox").value;
@@ -15,13 +22,15 @@ export default function LoginPanel() {
 
     let result = await res.text();
 
-    if (result == "good") {
+    if (result === "good") {
       localStorage.username = username;
+      navigate("/home"); // Use navigate to redirect to /home on successful login
     } else {
       localStorage.username = "";
-      console.log(result);
+      setError("Wrong username and password.");
     }
   }
+
   return (
     <>
       <div
@@ -35,7 +44,7 @@ export default function LoginPanel() {
           color: "white",
         }}
       >
-        <h1 style={{ fontSize: "4em" }}>scrapbook</h1>
+        <h1 style={{ fontSize: "4em", marginTop: "0px" }}>scrapbook</h1>
         <div
           style={{
             display: "flex",
@@ -78,7 +87,6 @@ export default function LoginPanel() {
           <button
             style={{
               marginTop: "60px",
-              marginBottom: "60px",
               width: "100%", // Make the button take 100% width
               backgroundColor: "white",
               color: "#CC00FF",
@@ -94,6 +102,18 @@ export default function LoginPanel() {
           >
             <b>Log In</b>
           </button>
+          {error && (
+            <p
+              style={{
+                color: "white",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center", // Align the error message in the center
+              }}
+            >
+              {error}
+            </p>
+          )}
         </div>
       </div>
     </>

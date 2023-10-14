@@ -118,7 +118,7 @@
   .post-user-info-wrapper {
     display: flex;
     justify-content: flex-start;
-    width: 200px;
+    width: 350px;
   }
   .info-mobile p {
     font-size: 0.9rem;

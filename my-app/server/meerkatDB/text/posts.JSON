@@ -1,1 +1,28 @@
-{"0":{"text":{"title":"yo yo yo","content":"its posting time","includedUsers":"demi,uma","userCookie":"carter","location":"","time":1697271614112},"photos":[{"fieldname":"images","originalname":"IMG_3134.png","encoding":"7bit","mimetype":"image/png","destination":"meerkatDB/images/images","filename":"a5fe6d4cb106d708df21ca12da3a3eb8","path":"meerkatDB/images/images/a5fe6d4cb106d708df21ca12da3a3eb8","size":10356932,"url":"images/a5fe6d4cb106d708df21ca12da3a3eb8"}],"id":0},"1":{"text":{"title":"yo yo yo 2","content":"2nd post!","includedUsers":"uma,demi","userCookie":"carter","location":"","time":1697271676069},"photos":[{"fieldname":"images","originalname":"IMG_3134.HEIC","encoding":"7bit","mimetype":"image/heic","destination":"meerkatDB/images/images","filename":"9f9b4c3fb49977bb41259afbc7dc5dd3","path":"meerkatDB/images/images/9f9b4c3fb49977bb41259afbc7dc5dd3","size":963938,"url":"images/9f9b4c3fb49977bb41259afbc7dc5dd3"}],"id":1},"2":{"text":{"includedUsers":"uma,demi","content":"dsfa","title":"grtsfds","location":"Klaus Advanced Computing Building","userCookie":"carter","time":1697305361034},"photos":[{"fieldname":"images","originalname":"IMG_3134.png","encoding":"7bit","mimetype":"image/png","destination":"meerkatDB/images/images","filename":"5abff18fa7b80c56a0ea8d15bd03062c","path":"meerkatDB/images/images/5abff18fa7b80c56a0ea8d15bd03062c","size":10356932,"url":"images/5abff18fa7b80c56a0ea8d15bd03062c"}],"id":2},"3":{"text":{"includedUsers":"uma,demi","content":"yo yo yo this is a test","title":"title","location":"Klaus Advanced Computing Building","userCookie":"carter","time":1697305479544},"photos":[{"fieldname":"images","originalname":"3dmodel.jpeg","encoding":"7bit","mimetype":"image/jpeg","destination":"meerkatDB/images/images","filename":"feef62af2641121ef2bb7ff76ea52b60","path":"meerkatDB/images/images/feef62af2641121ef2bb7ff76ea52b60","size":78728,"url":"images/feef62af2641121ef2bb7ff76ea52b60"}],"id":3}}
+
+{
+  "0": {
+    "text": {
+      "includedUsers": "carter",
+      "content": "this is a post",
+      "location": "Klaus Advanced Computing Building",
+      "userCookie": "uanand6"
+    },
+    "photos": [
+      {
+        "fieldname": "images",
+        "originalname": "Screenshot 2023-10-14 010436.png",
+        "encoding": "7bit",
+        "mimetype": "image/png",
+        "destination": "meerkatDB/images/images",
+        "filename": "b3d1a71f60193d1c1caaa4d3b72dc607",
+        "path": "meerkatDB\\images\\images\\b3d1a71f60193d1c1caaa4d3b72dc607",
+        "size": 75689,
+        "url": "images/b3d1a71f60193d1c1caaa4d3b72dc607"
+      }
+    ],
+    "id": 0
+  },
+  "1":{"text":{"title":"yo yo yo","content":"its posting time","includedUsers":"demi,uma","userCookie":"carter","location":"","time":1697271614112},"photos":[{"fieldname":"images","originalname":"IMG_3134.png","encoding":"7bit","mimetype":"image/png","destination":"meerkatDB/images/images","filename":"a5fe6d4cb106d708df21ca12da3a3eb8","path":"meerkatDB/images/images/a5fe6d4cb106d708df21ca12da3a3eb8","size":10356932,"url":"images/a5fe6d4cb106d708df21ca12da3a3eb8"}],"id":0},"1":{"text":{"title":"yo yo yo 2","content":"2nd post!","includedUsers":"uma,demi","userCookie":"carter","location":"","time":1697271676069},"photos":[{"fieldname":"images","originalname":"IMG_3134.HEIC","encoding":"7bit","mimetype":"image/heic","destination":"meerkatDB/images/images","filename":"9f9b4c3fb49977bb41259afbc7dc5dd3","path":"meerkatDB/images/images/9f9b4c3fb49977bb41259afbc7dc5dd3","size":963938,"url":"images/9f9b4c3fb49977bb41259afbc7dc5dd3"}],"id":1},"2":{"text":{"includedUsers":"uma,demi","content":"dsfa","title":"grtsfds","location":"Klaus Advanced Computing Building","userCookie":"carter","time":1697305361034},"photos":[{"fieldname":"images","originalname":"IMG_3134.png","encoding":"7bit","mimetype":"image/png","destination":"meerkatDB/images/images","filename":"5abff18fa7b80c56a0ea8d15bd03062c","path":"meerkatDB/images/images/5abff18fa7b80c56a0ea8d15bd03062c","size":10356932,"url":"images/5abff18fa7b80c56a0ea8d15bd03062c"}],"id":2},"3":{"text":{"includedUsers":"uma,demi","content":"yo yo yo this is a test","title":"title","location":"Klaus Advanced Computing Building","userCookie":"carter","time":1697305479544},"photos":[{"fieldname":"images","originalname":"3dmodel.jpeg","encoding":"7bit","mimetype":"image/jpeg","destination":"meerkatDB/images/images","filename":"feef62af2641121ef2bb7ff76ea52b60","path":"meerkatDB/images/images/feef62af2641121ef2bb7ff76ea52b60","size":78728,"url":"images/feef62af2641121ef2bb7ff76ea52b60"}],"id":3}
+
+}
+
