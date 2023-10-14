@@ -19,16 +19,20 @@ export default function Post({
 
         <div className="post-user-info-wrapper">
 
-          <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
+        <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
           <div className="user-info">
-
+          
             <h3>{user.username}</h3>
             <div className="info-mobile">
-              <p>{date.toLocaleTimeString()}</p>
-              <p>{location}</p>
-            </div>
+            <p>{date.toLocaleTimeString()}</p>
+            <p>{location}</p>
+          </div>
+            
           </div>  
+
         </div>
+
+            
 
           <div className="right-post-info">
             <p>{date.toLocaleTimeString()}</p>

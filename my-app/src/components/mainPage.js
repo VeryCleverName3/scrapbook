@@ -18,7 +18,7 @@ const dummyUser = {
       "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
     ],
     tags: [dummyUser, dummyUser, dummyUser],
-    description: "Here is the description of this post"
+    description: "Here is the LONG description of this post // Here is the LONG description of this post // Here is the LONG description of this post // Here is the LONG description of this post"
   };
 
 export default function MainPage() {

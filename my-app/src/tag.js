@@ -1,7 +1,7 @@
 export default function Tag({user}) {
   let name = user.username;
-  if (name.length > 12) {
-    name = name.substring(0, 9) + "...";
+  if (name.length > 10) {
+    name = name.substring(0, 7) + "...";
   }
     return (
       <div className="user-tag">
