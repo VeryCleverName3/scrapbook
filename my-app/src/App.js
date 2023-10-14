@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./header";
 import Post from "./post";
+import Tag from "./tag"
 
 const dummyUser = {
   username: "john_doe",
@@ -30,7 +31,9 @@ function App() {
         attachments={dummyPost.attachments}
         tags={dummyPost.tags}
       />
+      <Tag user={dummyUser}/>
     </>
+    
   );
 }
 
