@@ -115,26 +115,18 @@
   .right-post-info {
     display: none;
   }
-  /* .user-info {
-    display: flex;
-    justify-content: flex-start;
-  } */
-  /* .post-header {
-    display: flex;
-  } */
   .post-user-info-wrapper {
     display: flex;
     justify-content: flex-start;
-    width: 200px;
+    width: 350px;
   }
-  .info-mobile p{
+  .info-mobile p {
     font-size: 0.9rem;
     color: #888;
     margin: 0;
-    /* font-size: 0.9rem;
-    color: #888;
-    margin: 0;
-    text-align: right; */
+  }
+  .posts {
+    display: flex;
   }
 }
 
@@ -163,6 +155,5 @@
   }
   .right-post-info p {
     font-size: 10px;
-
   }
 }

@@ -16,29 +16,21 @@ export default function Post({
   return (
     <div className="post">
       <div className="post-header">
-
         <div className="post-user-info-wrapper">
-
-        <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
+          <img src={user.profilePicture} alt={`${user.username}'s Profile`} />
           <div className="user-info">
-          
             <h3>{user.username}</h3>
             <div className="info-mobile">
-            <p>{date.toLocaleTimeString()}</p>
-            <p>{location}</p>
+              <p>{date.toLocaleTimeString()}</p>
+              <p>{location}</p>
+            </div>
           </div>
-            
-          </div>  
-
         </div>
 
-            
-
-          <div className="right-post-info">
-            <p>{date.toLocaleTimeString()}</p>
-            <p>{location}</p>
-          </div>
-      
+        <div className="right-post-info">
+          <p>{date.toLocaleTimeString()}</p>
+          <p>{location}</p>
+        </div>
       </div>
       <div className="post-content">
         {attachments.length > 0 && (
@@ -62,13 +54,13 @@ export default function Post({
       <div className="post-footer">
         <div className="tagged-users">
           <p>
-            {description.length > 100
-              ? description
-              : description.substring(0, 97) + "..."}
+            {description &&
+              (description.length < 250
+                ? description
+                : description.substring(0, 97) + "...")}
           </p>
         </div>
       </div>
-
     </div>
   );
 }

@@ -67,6 +67,7 @@ export default function CreatePostPage(){
                 {/* <input ></input> */}
                 <textarea name="description" form="create-scrap-form" className="add-description-textbox"></textarea>
             </div>
+
                 
                 
             <div className="create-button-div">
