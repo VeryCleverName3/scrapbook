@@ -57,7 +57,7 @@ export default function CreatePostPage(){
             </div> 
                 
             <div className="add-tags">
-                <p className="add-tags-text"> Add Tags (Maximum of 9)<span style={{color:"red"}}>*</span></p>
+                <p className="add-tags-text"> Who's in this photo? Enter their usernames separated by commas. <span style={{color:"red"}}>*</span></p>
                 {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
                 <textarea name="includedUsers" form="create-scrap-form" className="add-tags-textbox"></textarea>
             </div>

@@ -97,20 +97,19 @@ export default function MainPage() {
 
     setPosts(posts);
   }
+    
 
   useEffect(() => {
     getData();
   }, []);
 
-  return (
-    <>
-      <Header
-        attachment={
-          "https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"
-        }
-        makePost={true}
-      />
-      {posts}
-    </>
-  );
+return (
+        <>
+            <Header attachment={"https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"}/>
+            {posts}
+        </>
+    );
+
+
 }
+

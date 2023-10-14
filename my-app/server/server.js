@@ -115,7 +115,7 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
   }
 
   updateDatabase();
-  res.send("yo!");
+  res.send("<script>window.location = 'http://localhost:3000'</script>");
 });
 
 app.get("/getPost/:id", (req, res) => {
