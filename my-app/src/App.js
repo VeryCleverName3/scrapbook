@@ -23,12 +23,6 @@ const dummyPost = {
     dummyUser,
     dummyUser,
     dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
   ],
 };
 
