@@ -5,6 +5,7 @@ import Tag from "./tag.js"
 export default function HomePage({user, posts}) {
     return (
         <>
+            <head><title>yo</title></head>
             <Header attachment={user.profilePicture}/>
             <div className="posts">
                 {posts.map((post) => (

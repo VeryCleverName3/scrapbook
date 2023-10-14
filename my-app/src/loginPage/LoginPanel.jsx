@@ -9,7 +9,7 @@ export default function LoginPanel() {
   async function submit() {
     let username = document.getElementById("usernameBox").value;
     let password = document.getElementById("passwordBox").value;
-    let res = await fetch("http://localhost:8080/login", {
+    let res = await fetch(`http://${window.location.hostname}:8080/login`, {
       method: "POST",
       body: JSON.stringify({
         username: username,

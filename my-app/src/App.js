@@ -33,16 +33,16 @@ const dummyPost = {
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
+        <BrowserRouter>
+        <Routes>
 
-        <Route path="/" element={<Welcome />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/signup" element={<SignUpPage />}></Route>
-        <Route path="/home" element={<MainPage />}></Route>
-        <Route path="/makePost" element={<CreatePostPage/>}> </Route>
-      </Routes>
-    </BrowserRouter>
+            <Route path="/" element={<Welcome />}></Route>
+            <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/signup" element={<SignUpPage />}></Route>
+            <Route path="/home" element={<MainPage />}></Route>
+            <Route path="/makePost" element={<CreatePostPage/>}> </Route>
+        </Routes>
+        </BrowserRouter>
   );
 }
 

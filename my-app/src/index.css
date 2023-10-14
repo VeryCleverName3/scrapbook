@@ -1,21 +1,21 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .sticky-header {
   position: sticky;
   top: 0;
-  background-color: #E57CFF;
+  background-color: #e57cff;
   padding: 10px 0;
   z-index: 100;
 }
@@ -37,6 +37,12 @@ code {
   font-size: 30px;
 }
 
+.right-content {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .right-content .right-image {
   width: 35px; /* Adjust the width of the image as needed */
   height: 35px; /* Set the height to match the width for a circular shape */
@@ -51,7 +57,6 @@ code {
   width: 100px;
   border-radius: 15px;
   display: flex;
-  
 }
 
 .more-tag-bubble {
@@ -62,12 +67,11 @@ code {
   height: 35px;
   border-radius: 50%;
   display: flex;
-
 }
 
 .more-tag-text {
   text-align: left;
-  color: #D5D1FF;
+  color: #d5d1ff;
   font-weight: 700;
   font-size: 12px;
 }
@@ -85,7 +89,7 @@ code {
 
 .tag-right-content {
   text-align: left;
-  color: #D5D1FF;
+  color: #d5d1ff;
   font-weight: 700;
   font-size: 12px;
 }
@@ -94,14 +98,13 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   /* padding: none; */
 }
 
 .create-post-page {
   max-width: 500px;
-  height: 750px;
-  background-color: #EEA9FF;
+  background-color: #eea9ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,6 +112,8 @@ code {
   padding-left: 5%;
   padding-right: 5%;
   margin: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .create-post-page p {
@@ -116,8 +121,6 @@ code {
   color: black;
   font-weight: 700;
 }
-
-
 
 /* CSS for the custom upload button */
 .custom-file-upload {
@@ -133,11 +136,9 @@ code {
   font-size: 13px;
 }
 
-
 .custom-file-upload:hover {
-  background-color: rgb(235, 234, 234); 
+  background-color: rgb(235, 234, 234);
 }
-
 
 .file-upload {
   display: none;
@@ -156,7 +157,6 @@ code {
 
 .add-tags {
   padding-top: 10px;
-  
 }
 
 .add-tags-text {
@@ -173,8 +173,6 @@ code {
   font-size: 15px;
   resize: none;
 }
-
-
 
 .add-description {
   padding-top: 10px;
@@ -197,7 +195,6 @@ code {
   resize: none;
 }
 
-
 /* CSS for the cute button */
 .create-button {
   display: inline-block;
@@ -214,8 +211,8 @@ code {
   min-width: 180px;
 }
 
-.create-button:hover{
-  background-color: rgba(68, 68, 68, 0.884); 
+.create-button:hover {
+  background-color: rgba(68, 68, 68, 0.884);
 }
 
 .create-button-div {
@@ -223,7 +220,6 @@ code {
   display: flex;
   justify-content: center;
 }
-
 
 @media (min-width: 768px) {
   .add-description-textbox {
@@ -235,18 +231,9 @@ code {
   }
 
   .preview {
-    width: 500px
+    width: 500px;
   }
   .create-post-page {
     height: 100vh;
   }
 }
-@media (max-width: 768px) {
-  
-  .create-post-page {
-    height: 90vh;
-  }
-}
-
-
-
