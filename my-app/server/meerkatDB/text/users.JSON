@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-{"carter":{"name":"carter","password":"password","profilePicUrl":"","posts":[]},"uma":{"name":"uma","password":"pass1","profilePicUrl":"","posts":[]},"uanand6":{"name":"uanand6","password":"uanand6","profilePicUrl":"","posts":[]},"hello":{"name":"hello","password":"hello","profilePicUrl":"","posts":[]},"xoxoxo":{"name":"xoxoxo","password":"xoxoxo","profilePicUrl":"","posts":[]}}
-=======
+
 {"carter":{"name":"carter","password":"pass1","profilePicUrl":"","posts":[{"text":{"title":"yo yo yo","content":"its posting time","includedUsers":"demi,uma","userCookie":"carter","location":"","time":1697271614112},"photos":[{"fieldname":"images","originalname":"IMG_3134.png","encoding":"7bit","mimetype":"image/png","destination":"meerkatDB/images/images","filename":"a5fe6d4cb106d708df21ca12da3a3eb8","path":"meerkatDB/images/images/a5fe6d4cb106d708df21ca12da3a3eb8","size":10356932,"url":"images/a5fe6d4cb106d708df21ca12da3a3eb8"}],"id":0},{"text":{"title":"yo yo yo 2","content":"2nd post!","includedUsers":"uma,demi","userCookie":"carter","location":"","time":1697271676069},"photos":[{"fieldname":"images","originalname":"IMG_3134.HEIC","encoding":"7bit","mimetype":"image/heic","destination":"meerkatDB/images/images","filename":"9f9b4c3fb49977bb41259afbc7dc5dd3","path":"meerkatDB/images/images/9f9b4c3fb49977bb41259afbc7dc5dd3","size":963938,"url":"images/9f9b4c3fb49977bb41259afbc7dc5dd3"}],"id":1}]}}
->>>>>>> 26d38c3b2b5eed0984fa7457457e948036cc9ea1
+

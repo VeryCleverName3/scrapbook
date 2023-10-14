@@ -113,10 +113,6 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
     }
   }
 
-<<<<<<< HEAD
-  updateDatabase();
-  res.send("yo!");
-=======
     for(let photo of photos){
         photo.url = `images/${photo.filename}`;
     }
@@ -136,7 +132,7 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
 
     updateDatabase();
     res.send("yo!");
->>>>>>> 26d38c3b2b5eed0984fa7457457e948036cc9ea1
+
 });
 
 app.get("/getPost/:id", (req, res) => {
@@ -144,14 +140,13 @@ app.get("/getPost/:id", (req, res) => {
 });
 
 app.get("/postIdsFor/:userId", (req, res) => {
-<<<<<<< HEAD
   let postIds = [];
   for (let i of users[req.params.userId].posts) {
     postIds.push(i.id);
   }
 
   res.send(JSON.stringify(postIds));
-=======
+
     if(users[req.params.userId]){
         let postIds = [];
         for(let i of users[req.params.userId].posts){
@@ -162,7 +157,6 @@ app.get("/postIdsFor/:userId", (req, res) => {
     } else {
         res.send("[]");
     }
->>>>>>> 26d38c3b2b5eed0984fa7457457e948036cc9ea1
 });
 
 app.listen(8080);

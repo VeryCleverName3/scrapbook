@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Welcome() {
+  let navigate = useNavigate();
+
+  useEffect(()=>{
+    let user = localStorage.username;
+
+    if(user != undefined && user != ""){
+      navigate("/home");
+    }
+  });
+
   return (
     <>
       <div
