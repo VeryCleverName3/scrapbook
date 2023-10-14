@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
+import { useState } from "react";
+
 export default function SignUpPage() {
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const [error, setError] = useState(null); // Add an error state
+
   async function submit() {
     let username = document.getElementById("usernameBox").value;
     let password = document.getElementById("passwordBox").value;
     let pass2 = document.getElementById("passwordBox2").value;
-    if (password == pass2) {
+
+    if (password === pass2) {
       let res = await fetch("http://localhost:8080/makeUser", {
         method: "POST",
         body: JSON.stringify({
@@ -17,17 +24,19 @@ export default function SignUpPage() {
 
       let result = await res.text();
 
-      if (result == "good") {
+      if (result === "good") {
         localStorage.username = username;
+        navigate("/home"); // Navigate to the home page on success
       } else {
         localStorage.username = "";
-        console.log(result);
+        setError("Username already taken."); // Set the error message
       }
     } else {
-      console.log("passwords don't match!");
+      setError("Passwords do not match."); // Set an error message
     }
 
   }
+
   return (
     <>
       <div
@@ -87,7 +96,7 @@ export default function SignUpPage() {
             </h4>
             <input
               id="passwordBox2"
-              type="password" // Use type="password" to hide the text
+              type="password"
               style={{
                 border: "none",
                 borderRadius: "5px",
@@ -117,6 +126,18 @@ export default function SignUpPage() {
           >
             <b>Sign Up</b>
           </button>
+          {error && (
+            <p
+              style={{
+                color: "white",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center", // Align the error message in the center
+              }}
+            >
+              {error}
+            </p>
+          )}
         </div>
       </div>
     </>
