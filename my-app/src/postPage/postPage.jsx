@@ -34,7 +34,7 @@ export default function CreatePostPage(){
                 <label htmlFor="file-upload" className="custom-file-upload">
                     <span className="fas fa-cloud-upload-alt">Select Files</span> 
                 </label>
-                <input id="file-upload" name="images" type="files" className="file-upload" />
+                <input id="file-upload" name="images" type="file" className="file-upload" multiple/>
             </div>
 
             <div className="preview">
