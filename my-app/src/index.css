@@ -57,7 +57,6 @@ code {
   width: 100px;
   border-radius: 15px;
   display: flex;
-  
 }
 
 .more-tag-bubble {
@@ -68,12 +67,11 @@ code {
   height: 35px;
   border-radius: 50%;
   display: flex;
-
 }
 
 .more-tag-text {
   text-align: left;
-  color: #D5D1FF;
+  color: #d5d1ff;
   font-weight: 700;
   font-size: 12px;
 }
@@ -106,7 +104,6 @@ code {
 
 .create-post-page {
   max-width: 500px;
-  height: 750px;
   background-color: #eea9ff;
   display: flex;
   flex-direction: column;
@@ -115,6 +112,8 @@ code {
   padding-left: 5%;
   padding-right: 5%;
   margin: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .create-post-page p {
@@ -236,10 +235,5 @@ code {
   }
   .create-post-page {
     height: 100vh;
-  }
-}
-@media (max-width: 768px) {
-  .create-post-page {
-    height: 90vh;
   }
 }
