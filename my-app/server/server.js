@@ -122,6 +122,10 @@ app.get("/getPost/:id", (req, res) => {
   res.send(JSON.stringify(posts[req.params.id]));
 });
 
+app.get("/listOfUsers", (req, res) => {
+  res.send(JSON.stringify(Object.keys(users)));
+});
+
 app.get("/postIdsFor/:userId", (req, res) => {
     let alreadySeen = {};
     if (users[req.params.userId]) {

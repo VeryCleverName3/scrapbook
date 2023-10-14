@@ -12,6 +12,7 @@
 /build
 
 /server/meerkatDB
+/my-app/server/meerkatDB
 
 # misc
 .DS_Store

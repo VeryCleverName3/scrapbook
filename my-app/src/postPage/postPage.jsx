@@ -7,7 +7,7 @@ includedUsers: other users included in the post
 userCookie: username of the poster
 location: Klaus College of Computing
 */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Header from "../header.js";
@@ -16,12 +16,41 @@ export default function CreatePostPage(){
     let hostname = window.location.hostname;
     let url = `http://${hostname}:8080/post`;
 
+    let [options, setOptions] = useState([]);
+
+    async function getOptions(){
+      let usernames = JSON.parse(await (await fetch(`http://${window.location.hostname}:8080/listOfUsers`)).text());
+      let options = [];
+      for(let i of usernames){
+        options.push(<option value={i}></option>);
+      }
+
+      setOptions(options);
+    }
+
+    useEffect(()=>{getOptions()},[]);
+
     let userCookie = localStorage.username;
     let attachments = [
         "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
         "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
         "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
       ]
+
+      function updateHiddenInput(){
+        let unamesVals = [document.getElementById("uNames1a").value, document.getElementById("uNames2a").value, document.getElementById("uNames3a").value];
+        console.log(unamesVals);
+        let realVals = "";
+        for(let i of unamesVals){
+          if(i){
+            realVals += i + ",";
+          }
+        }
+
+        realVals = realVals.substring(0, realVals.length - 1);
+
+        document.getElementById("includedUsersInput").value = realVals;
+      }
 
     return (<>
     <Header attachment={attachments[0]}/>
@@ -69,15 +98,21 @@ export default function CreatePostPage(){
             <div className="add-tags">
               <p className="add-tags-text">
                 {" "}
-                Enter tagged usernames separated by commas.{" "}
+                Who else is in this post?{" "}
                 <span style={{ color: "red" }}>*</span>
+              
               </p>
               {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
-              <textarea
-                name="includedUsers"
-                form="create-scrap-form"
-                className="add-tags-textbox"
-              ></textarea>
+              <input type="hidden" id= "includedUsersInput" name="includedUsers"></input>
+              <input list="uNames1" id="uNames1a" type="text" onInput={updateHiddenInput}/> 
+              <datalist id="uNames1"
+              >{options}</datalist> <br></br>
+              <input list="uNames2" id="uNames2a" type="text" onInput={updateHiddenInput}/> 
+              <datalist id="uNames2"
+              >{options}</datalist><br></br>
+              <input list="uNames3" id="uNames3a" type="text" onInput={updateHiddenInput}/> 
+              <datalist id="uNames3"
+              >{options}</datalist>
             </div>
 
             <div className="add-description">
