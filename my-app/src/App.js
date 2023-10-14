@@ -19,17 +19,8 @@ const dummyPost = {
     "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
     "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
   ],
-  tags: [
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-    dummyUser,
-  ],
+  description: "Lorem i[sumkjsdnfikashdfihagfhdafjhadhbgadhgfvsgagfad",
+  tags: [dummyUser, dummyUser, dummyUser],
 };
 
 function App() {
@@ -45,6 +36,7 @@ function App() {
         location={dummyPost.location}
         date={dummyPost.date}
         attachments={dummyPost.attachments}
+        description={dummyPost.description}
         tags={dummyPost.tags}
       />
     </>
