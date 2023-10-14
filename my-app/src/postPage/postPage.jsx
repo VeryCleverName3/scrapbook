@@ -13,6 +13,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carous
 import Header from "../header.js";
 
 export default function CreatePostPage(){
+    let hostname = window.location.hostname;
+    let url = `http://${hostname}:8080/post`;
+
     let userCookie = localStorage.username;
     let attachments = [
         "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
@@ -28,7 +31,7 @@ export default function CreatePostPage(){
     
     <div className="create-post-page">
     
-        <form id="create-scrap-form" action="http://localhost:8080/post" method="POST" encType="multipart/form-data">
+        <form id="create-scrap-form" action={url} method="POST" encType="multipart/form-data">
             <div className="upload">
                 <div className="upload-text">Upload Photos (Maximum of 5) <span style={{ color: "red" }}>*</span></div>
                 <label htmlFor="file-upload" className="custom-file-upload">

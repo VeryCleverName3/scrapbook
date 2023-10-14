@@ -11,7 +11,7 @@ export default function SignUpPage() {
     let pass2 = document.getElementById("passwordBox2").value;
 
     if (password === pass2) {
-      let res = await fetch("http://localhost:8080/makeUser", {
+      let res = await fetch(`http://${window.location.hostname}:8080/makeUser`, {
         method: "POST",
         body: JSON.stringify({
           username: username,

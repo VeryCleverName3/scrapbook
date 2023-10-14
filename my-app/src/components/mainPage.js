@@ -53,7 +53,7 @@ export default function MainPage() {
     "https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg";
   async function getData() {
     let postIds = JSON.parse(
-      await (await fetch(`http://localhost:8080/postIdsFor/${user}`)).text()
+      await (await fetch(`http://${window.location.hostname}:8080/postIdsFor/${user}`)).text()
     );
 
     let posts = [];
@@ -72,7 +72,7 @@ export default function MainPage() {
         let date = new Date(1 * postInfo.text.time);
         let attachments = [];
         for (let j of postInfo.photos) {
-          attachments.push(`http://localhost:8080/${j.url}`);
+          attachments.push(`http://${window.location.hostname}:8080/${j.url}`);
         }
 
         let description = postInfo.text.content;
