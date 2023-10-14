@@ -92,8 +92,6 @@ export default function MainPage() {
         <>
             <Header attachment={"https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"}/>
             {posts}
-            <Post user={dummyUser} location={dummyPost.location} date={dummyPost.date} attachments={dummyPost.attachments} description={dummyPost.description} tags={dummyPost.tags}/>
-            
         </>
     );
 }
