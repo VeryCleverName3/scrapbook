@@ -60,7 +60,7 @@ export default function MainPage() {
 
     for (let i of postIds) {
       let postInfo = JSON.parse(
-        await (await fetch(`http://localhost:8080/getPost/${i}`)).text()
+        await (await fetch(`http://${window.location.hostname}:8080/getPost/${i}`)).text()
       );
 
       if (postInfo.text.userCookie) {
