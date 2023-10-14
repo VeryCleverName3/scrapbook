@@ -18,7 +18,7 @@ export default function CreatePostPage(){
 
     return (<>
     <div className="create-post-page">
-        <form action="http://localhost:8080/post" method="POST" encType="multipart/form-data">
+        <form action="http://localhost:8080/post" method="POST" encType="multipart/form-data" id="formwithdata">
         <div className="upload">
             <div>Upload Photos (Maximum of 5) <span style={{ color: "red" }}>*</span></div>
             <label htmlFor="file-upload" className="custom-file-upload">
@@ -51,10 +51,15 @@ export default function CreatePostPage(){
             <input name="includedUsers" type="text"></input>
             </div>
             
+            <textarea type="text" form="formwithdata" name="content"></textarea>
+            <input type="text" name="title"></input>
             
             <div className="create-button">
             {/* <input type="submit" value="Create Scrap"></input> */}
+
             <input type="submit" value="Create Scrap" className="create-button"></input>
+
+        
 
             </div>
 
