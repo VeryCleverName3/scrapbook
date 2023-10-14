@@ -23,8 +23,6 @@ export default function CreatePostPage(){
         "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
       ]
 
-    console.log(userCookie);
-
     return (<>
     <Header attachment={attachments[0]}/>
     <div className="create-post-page-wrapper">
@@ -33,55 +31,83 @@ export default function CreatePostPage(){
     
         <form id="create-scrap-form" action={url} method="POST" encType="multipart/form-data">
             <div className="upload">
-                <div className="upload-text">Upload Photos (Maximum of 5) <span style={{ color: "red" }}>*</span></div>
-                <label htmlFor="file-upload" className="custom-file-upload">
-                    <span className="fas fa-cloud-upload-alt">Select Files</span> 
-                </label>
-                <input id="file-upload" name="images" type="file" className="file-upload" multiple/>
+              <div className="upload-text">
+                Upload Photos (Maximum of 5){" "}
+                <span style={{ color: "red" }}>*</span>
+              </div>
+              <label htmlFor="file-upload" className="custom-file-upload">
+                <span className="fas fa-cloud-upload-alt">Select Files</span>
+              </label>
+              <input
+                id="file-upload"
+                name="images"
+                type="file"
+                className="file-upload"
+                multiple
+              />
             </div>
 
             <div className="preview">
-                <p>Preview</p>
-                <div className="preview-carousel">
-                        {attachments.length > 0 && (
-                        <Carousel showStatus={false} showThumbs={false}>
-                            {attachments.map((attachment, index) => (
-                            <div key={index} className="carousel-item">
-                                <img
-                                className="post-image"
-                                src={attachment}
-                                alt={`Image ${index + 1}`}
-                                />
-                            </div>
-                            ))}
-                        </Carousel>
-                        )}
-                </div>
-            </div> 
-                
+              <p>Preview</p>
+              <div className="preview-carousel">
+                {attachments.length > 0 && (
+                  <Carousel showStatus={false} showThumbs={false}>
+                    {attachments.map((attachment, index) => (
+                      <div key={index} className="carousel-item">
+                        <img
+                          className="post-image"
+                          src={attachment}
+                          alt={`Image ${index + 1}`}
+                        />
+                      </div>
+                    ))}
+                  </Carousel>
+                )}
+              </div>
+            </div>
+
             <div className="add-tags">
-                <p className="add-tags-text"> Who's in this photo? Enter their usernames separated by commas. <span style={{color:"red"}}>*</span></p>
-                {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
-                <textarea name="includedUsers" form="create-scrap-form" className="add-tags-textbox"></textarea>
+              <p className="add-tags-text">
+                {" "}
+                Enter tagged usernames separated by commas.{" "}
+                <span style={{ color: "red" }}>*</span>
+              </p>
+              {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
+              <textarea
+                name="includedUsers"
+                form="create-scrap-form"
+                className="add-tags-textbox"
+              ></textarea>
             </div>
 
             <div className="add-description">
-                <p className="add-description-text">Add Description</p>
-                {/* <input ></input> */}
-                <textarea name="content" form="create-scrap-form" className="add-description-textbox"></textarea>
+              <p className="add-description-text">Add Description</p>
+              {/* <input ></input> */}
+              <textarea
+                name="content"
+                form="create-scrap-form"
+                className="add-description-textbox"
+              ></textarea>
             </div>
 
-                
-                
             <div className="create-button-div">
-            {/* <input type="submit" value="Create Scrap"></input> */}
-            <input type="submit" value="Create Scrap" className="create-button"></input>
+              {/* <input type="submit" value="Create Scrap"></input> */}
+              <input
+                type="submit"
+                value="Create Scrap"
+                className="create-button"
+              ></input>
             </div>
 
-            <input type="hidden" value="Klaus Advanced Computing Building" name="location"></input>
+            <input
+              type="hidden"
+              value="Klaus Advanced Computing Building"
+              name="location"
+            ></input>
             <input type="hidden" value={userCookie} name="userCookie"></input>
-        </form>
-    </div>
-    </div>
-    </>)
+          </form>
+        </div>
+      </div>
+    </>
+  );
 }
