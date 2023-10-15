@@ -48,18 +48,21 @@ app.get("/", (req, res) => {
 app.post("/makeUser", (req, res) => {
   let userData = req.body;
 
-
-    if(users[userData.username] == undefined){
-        users[userData.username] =  {name: userData.username, password: userData.password, profilePicUrl: "", posts: []}; 
-        if(posts[0]){
-            users[userData.username].posts.push(posts[0]);
-        }
-        res.send("good");
-    } else {
-        res.send("username already taken!!");
+  if (users[userData.username] == undefined) {
+    users[userData.username] = {
+      name: userData.username,
+      password: userData.password,
+      profilePicUrl: "",
+      posts: [],
+    };
+    if (posts[0]) {
+      users[userData.username].posts.push(posts[0]);
     }
-    updateDatabase();
-
+    res.send("good");
+  } else {
+    res.send("username already taken!!");
+  }
+  updateDatabase();
 });
 
 app.post("/login", (req, res) => {
@@ -95,7 +98,7 @@ app.post("/post", postingForm.array("images", 5), (req, res, next) => {
     res.send("not logged in!");
     return;
   }
-  let includedUsers = text.includedUsers.split(","); //includedUsers is a comma separated list
+  let includedUsers = text.includedUsers.replaceAll(" ", "").split(","); //includedUsers is a comma separated list
   includedUsers.push(text.userCookie);
 
   for (let photo of photos) {
@@ -127,22 +130,24 @@ app.get("/listOfUsers", (req, res) => {
 });
 
 app.get("/postIdsFor/:userId", (req, res) => {
-    let alreadySeen = {};
-    if (users[req.params.userId]) {
-        let postIds = [];
-        for (let i of users[req.params.userId].posts) {
-            if(alreadySeen[i.id] == undefined){
-                postIds.push(i.id);
-                alreadySeen[i.id] = true;
-            }
-        }
-
-        postIds.sort((a,b) => {return b - a});
-
-        res.send(JSON.stringify(postIds));
-    } else {
-        res.send("[]");
+  let alreadySeen = {};
+  if (users[req.params.userId]) {
+    let postIds = [];
+    for (let i of users[req.params.userId].posts) {
+      if (alreadySeen[i.id] == undefined) {
+        postIds.push(i.id);
+        alreadySeen[i.id] = true;
+      }
     }
+
+    postIds.sort((a, b) => {
+      return b - a;
+    });
+
+    res.send(JSON.stringify(postIds));
+  } else {
+    res.send("[]");
+  }
 });
 
 app.listen(8080);

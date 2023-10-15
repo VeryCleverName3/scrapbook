@@ -1,64 +1,63 @@
-/*
-post has inputs of names:
-title: title of post
-content: text content of post
-images: list of images added in the post
-includedUsers: other users included in the post
-userCookie: username of the poster
-location: Klaus College of Computing
-*/
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Header from "../header.js";
+import Select from "react-select";
 
-export default function CreatePostPage(){
-    let hostname = window.location.hostname;
-    let url = `http://${hostname}:8080/post`;
+export default function CreatePostPage() {
+  let hostname = window.location.hostname;
+  let url = `http://${hostname}:8080/post`;
 
-    let [options, setOptions] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState([]);
+  const maxSelection = 9;
 
-    async function getOptions(){
-      let usernames = JSON.parse(await (await fetch(`http://${window.location.hostname}:8080/listOfUsers`)).text());
-      let options = [];
-      for(let i of usernames){
-        options.push(<option value={i}></option>);
-      }
+  const [options, setOptions] = useState([]);
+  async function getOptions() {
+    let usernames = JSON.parse(
+      await (
+        await fetch(`http://${window.location.hostname}:8080/listOfUsers`)
+      ).text()
+    );
+    console.log(userNames);
 
-      setOptions(options);
+    const newOptions = usernames.map((username) => ({
+      value: username,
+      label: username,
+    }));
+
+    setOptions(newOptions);
+  }
+
+  useEffect(() => {
+    getOptions();
+  }, []);
+
+  const handleUserSelect = (selectedOptions) => {
+    if (selectedOptions.length <= maxSelection) {
+      setSelectedUsers(selectedOptions);
     }
+  };
 
-    useEffect(()=>{getOptions()},[]);
+  const userNames = selectedUsers.map((user) => user.value).join(", ");
 
-    let userCookie = localStorage.username;
-    let attachments = [
-        "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
-        "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
-        "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
-      ]
+  let userCookie = localStorage.username;
+  let attachments = [
+    "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4=",
+    "https://media.istockphoto.com/id/1384618716/photo/group-of-happy-friends-taking-selfie-pic-outside-happy-different-young-people-having-fun.webp?b=1&s=170667a&w=0&k=20&c=wWtYoTCWJUZqJK-ehBglTVxA4PtuDUZf1FVWLP2ddcA=",
+    "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
+  ];
 
-      function updateHiddenInput(){
-        let unamesVals = [document.getElementById("uNames1a").value, document.getElementById("uNames2a").value, document.getElementById("uNames3a").value];
-        console.log(unamesVals);
-        let realVals = "";
-        for(let i of unamesVals){
-          if(i){
-            realVals += i + ",";
-          }
-        }
-
-        realVals = realVals.substring(0, realVals.length - 1);
-
-        document.getElementById("includedUsersInput").value = realVals;
-      }
-
-    return (<>
-    <Header attachment={attachments[0]}/>
-    <div className="create-post-page-wrapper">
-    
-    <div className="create-post-page">
-    
-        <form id="create-scrap-form" action={url} method="POST" encType="multipart/form-data">
+  return (
+    <>
+      <Header attachment={attachments[0]} />
+      <div className="create-post-page-wrapper">
+        <div className="create-post-page">
+          <form
+            id="create-scrap-form"
+            action={url}
+            method="POST"
+            encType="multipart/form-data"
+          >
             <div className="upload">
               <div className="upload-text">
                 Upload Photos (Maximum of 5){" "}
@@ -97,27 +96,21 @@ export default function CreatePostPage(){
 
             <div className="add-tags">
               <p className="add-tags-text">
-                {" "}
                 Who else is in this post?{" "}
                 <span style={{ color: "red" }}>*</span>
-              
               </p>
-              {/* <input name="includedUsers" type="text" className="add-tags-textbox"></input> */}
-              <input type="hidden" id= "includedUsersInput" name="includedUsers"></input>
-              <input list="uNames1" id="uNames1a" type="text" onInput={updateHiddenInput}/> 
-              <datalist id="uNames1"
-              >{options}</datalist> <br></br>
-              <input list="uNames2" id="uNames2a" type="text" onInput={updateHiddenInput}/> 
-              <datalist id="uNames2"
-              >{options}</datalist><br></br>
-              <input list="uNames3" id="uNames3a" type="text" onInput={updateHiddenInput}/> 
-              <datalist id="uNames3"
-              >{options}</datalist>
+              <Select
+                isMulti
+                options={options}
+                value={selectedUsers}
+                onChange={handleUserSelect}
+                closeMenuOnSelect={false}
+                hideSelectedOptions={false}
+              />
             </div>
 
             <div className="add-description">
               <p className="add-description-text">Add Description</p>
-              {/* <input ></input> */}
               <textarea
                 name="content"
                 form="create-scrap-form"
@@ -126,7 +119,6 @@ export default function CreatePostPage(){
             </div>
 
             <div className="create-button-div">
-              {/* <input type="submit" value="Create Scrap"></input> */}
               <input
                 type="submit"
                 value="Create Scrap"
@@ -140,6 +132,7 @@ export default function CreatePostPage(){
               name="location"
             ></input>
             <input type="hidden" value={userCookie} name="userCookie"></input>
+            <input type="hidden" value={userNames} name="includedUsers"></input>
           </form>
         </div>
       </div>
