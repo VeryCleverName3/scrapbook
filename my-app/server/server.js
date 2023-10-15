@@ -161,6 +161,8 @@ app.post("/addCommentTo/:postId", (res, req) => {
   }
 
   posts[id].comments.push(comment);
+
+  res.send("ok...");
 });
 
 app.listen(8080);
