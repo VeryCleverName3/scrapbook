@@ -159,6 +159,7 @@ app.post("/addCommentTo/:postId", (req, res) => {
   }
 
   posts[id].comments.push(comment);
+
   res.send("ok...");
 });
 
