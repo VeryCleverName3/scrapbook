@@ -18,6 +18,9 @@ export default function Header({ attachment, makePost }) {
     };
   }, []);
 
+  let user = localStorage.username;
+  let url = `http://${window.location.hostname}:8080/scrapbook/${user}`;
+
   return (
     <div className={`sticky-header ${isSticky ? "sticky" : ""}`}>
       <div className="header-content">
@@ -31,12 +34,14 @@ export default function Header({ attachment, makePost }) {
               <img height="25px" src="./createPostButton.svg" />
             </a>
           )}
+          <a href={url}>
           <img
             src={attachment}
             height="35px"
             alt="Right-aligned Image"
             className="right-image"
           />
+          </a>
         </div>
       </div>
     </div>
