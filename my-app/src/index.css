@@ -97,7 +97,20 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: none; */
+}
+
+.create-post-page-wrapper-wrapper-text {
+  padding-left: 2%;
+  margin-top: 7px;
+  margin-bottom: -10px;
+  text-align: left;
+  font-size: 15px;
+  color: black;
+  font-weight: 700;
+}
+.create-post-page-wrapper-wrapper-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .create-post-page {
@@ -151,7 +164,18 @@ code {
 .preview-carousel .carousel-item {
   border-radius: 15px;
   overflow: hidden;
-  max-width: 500px;
+  /* max-width: 300px; */
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%; */
+}
+
+.post-image {
+  object-fit: cover; /* Make sure the image fills the container while maintaining its aspect ratio */
+  object-position: center; /* Center the image both horizontally and vertically */
+  border-radius: 10px; /* Rounded corners */
 }
 
 .add-tags {
@@ -235,4 +259,24 @@ code {
   .create-post-page {
     height: 100vh;
   }
+}
+
+.links {
+  text-decoration: underline;
+}
+
+.log-in-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.log-in-link h4 {
+  margin: 0;
+}
+
+.back-text {
+  display: flex;
+  justify-content: flex-start;
 }
