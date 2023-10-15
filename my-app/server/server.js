@@ -150,7 +150,6 @@ app.get("/postIdsFor/:userId", (req, res) => {
   }
 });
 
-
 //comment post request body format: {username, text}
 app.post("/addCommentTo/:postId", (req, res) => {
   let comment = req.body;
@@ -266,3 +265,4 @@ app.get("/scrapbook/:userId", (req, res) => {
 });
 
 app.listen(8080);
+

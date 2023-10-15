@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Tag from "./tag";
 import { useState } from "react";
+import Comment from "./comment";
 
 export default function Post({
   user,
@@ -12,6 +13,8 @@ export default function Post({
   description,
   tags,
   index,
+  postId,
+  comments,
 }) {
   // Assuming you have a function to format date and time
   // let detailed = false;
@@ -45,6 +48,48 @@ export default function Post({
     setDetailed((detailed = !detailed));
   };
   let backgroundColors = ["#E5BBFF", "#D5D1FF", "#D1E3FF"];
+
+  const [newComment, setNewComment] = useState("");
+
+  const handleCommentChange = (e) => {
+    setNewComment(e.target.value);
+  };
+
+  let [comments2, setComments] = useState([]);
+  comments2 = comments;
+
+  const handleCommentSubmit = async () => {
+    // setComments(comments2, comments);
+    if (newComment.trim() !== "") {
+      // setComments([...comments, newComment]); // Add the new comment to the comments array TODO: CHANGE
+      setNewComment(""); // Clear the input field after submitting the comment
+      console.log(newComment);
+      let res = await fetch(
+        `http://${window.location.hostname}:8080/addCommentTo/${postId}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username: localStorage.username,
+            text: newComment,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+    }
+
+    let postInfo = JSON.parse(
+      await (
+        await fetch(`http://${window.location.hostname}:8080/getPost/${postId}`)
+      ).text()
+    );
+    setComments(comments2, postInfo.comments);
+    window.location.reload();
+    // console.log()
+    // comments2 = postInfo.comments;
+  };
+
   return (
     <div
       className="post"
@@ -102,6 +147,38 @@ export default function Post({
             {detailed && description}
           </p>
         </div>
+        <div
+          className="new-comment"
+          style={{ display: "flex", gap: "5px", marginTop: "15px" }}
+        >
+          <textarea
+            name="content"
+            form="create-scrap-form"
+            className="comment-textbox"
+            id="comment-textbox-id"
+            value={newComment}
+            onChange={handleCommentChange}
+            placeholder="Comment..."
+          ></textarea>
+          <button
+            onClick={handleCommentSubmit}
+            style={{
+              border: "none",
+              borderRadius: "50%",
+            }}
+          >
+            &gt;
+          </button>
+        </div>
+        {/* need fix map each username and comment sjhdbkaw */}
+        {detailed && (
+          <div className="posted-comments">
+            {console.log(comments2)}
+            {comments2.map((comment) => (
+              <Comment user={comment.username} comment={comment.text} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
