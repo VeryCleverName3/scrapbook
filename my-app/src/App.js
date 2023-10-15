@@ -3,13 +3,13 @@ import "./App.css";
 import Header from "./header";
 import Post from "./post";
 import Tag from "./tag";
-import MainPage from "./components/mainPage.js";
+import MainPage from "./mainPage.js";
 import LoginPage from "./loginPage/LoginPanel.jsx";
 import SignUpPage from "./loginPage/SignUpPanel.jsx";
 
 import Welcome from "./components/entryPage";
 import CreatePostPage from "./postPage/postPage.jsx";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const dummyUser = {
   username: "john_doe",
@@ -31,18 +31,18 @@ const dummyPost = {
 };
 
 function App() {
-
   return (
-        <BrowserRouter>
-        <Routes>
-
-            <Route path="/" element={<Welcome />}></Route>
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/signup" element={<SignUpPage />}></Route>
-            <Route path="/home" element={<MainPage />}></Route>
-            <Route path="/makePost" element={<CreatePostPage/>}> </Route>
-        </Routes>
-        </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Welcome />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/signup" element={<SignUpPage />}></Route>
+        <Route path="/home" element={<MainPage />}></Route>
+        <Route path="/makePost" element={<CreatePostPage />}>
+          {" "}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

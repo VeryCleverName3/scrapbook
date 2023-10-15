@@ -278,6 +278,14 @@ code {
   .create-post-page {
     height: 100vh;
   }
+  .outerPosts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Horizontal center alignment */
+    align-items: center; /* Vertical center alignment */
+    margin-top: 20px;
+    gap: 15px;
+  }
 }
 
 .links {

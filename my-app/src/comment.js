@@ -7,7 +7,7 @@ export default function Comment({ user, comment }) {
           backgroundColor: "white",
           padding: "8px",
           borderRadius: "12px",
-          marginTop: "10px",
+          marginTop: "8px",
         }}
       >
         <div

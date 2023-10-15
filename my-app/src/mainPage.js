@@ -1,11 +1,11 @@
-import DetailedPost from "../detailedPost.js";
-import Post from "../post.js";
-import Header from "../header.js";
-import Tag from "../tag.js";
+import DetailedPost from "./detailedPost.js";
+import Post from "./post.js";
+import Header from "./header.js";
+import Tag from "./tag.js";
 
 import { useEffect, useState } from "react";
 
-import HomePage from "../homePage.js";
+import HomePage from "./homePage.js";
 
 const dummyUser = {
   username: "john_doe",
@@ -90,8 +90,8 @@ export default function MainPage() {
         }
 
         let comments = [];
-        if(postInfo.comments){
-          for(let j of postInfo.comments){
+        if (postInfo.comments) {
+          for (let j of postInfo.comments) {
             comments.push(j);
           }
         }
@@ -128,7 +128,7 @@ export default function MainPage() {
         }
         makePost={true}
       />
-      {posts}
+      <div className="outerPosts">{posts}</div>
     </>
   );
 }

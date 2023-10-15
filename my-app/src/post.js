@@ -149,7 +149,7 @@ export default function Post({
         </div>
         <div
           className="new-comment"
-          style={{ display: "flex", gap: "5px", marginTop: "15px" }}
+          style={{ display: "flex", gap: "5px", marginTop: "10px" }}
         >
           <textarea
             name="content"
@@ -173,7 +173,6 @@ export default function Post({
         {/* need fix map each username and comment sjhdbkaw */}
         {detailed && (
           <div className="posted-comments">
-            {console.log(comments2)}
             {comments2.map((comment) => (
               <Comment user={comment.username} comment={comment.text} />
             ))}

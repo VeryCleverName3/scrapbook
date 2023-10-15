@@ -109,7 +109,7 @@
 /* Media query for non-phone screens (e.g., screens wider than 768px) */
 @media (min-width: 768px) {
   .post {
-    width: 45%; /* Set the width to 50% for non-phone screens */
+    min-width: 500px;
   }
   .right-post-info {
     display: none;
