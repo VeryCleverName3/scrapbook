@@ -47,17 +47,25 @@ export default function CreatePostPage() {
     "https://media.istockphoto.com/id/514325215/photo/say-cheese-for-success.jpg?s=612x612&w=0&k=20&c=Lg2vKGMNPEY-VAPxvz0hmSmbqIk-MU-oVEaWikyy7QU=",
   ];
 
-  return (
-    <>
-      <Header attachment={attachments[0]} />
-      <div className="create-post-page-wrapper">
-        <div className="create-post-page">
-          <form
-            id="create-scrap-form"
-            action={url}
-            method="POST"
-            encType="multipart/form-data"
-          >
+
+    function changePreview(){
+      let files = document.getElementById("file-upload").files;
+      let j = 0;
+      for(let i of files){
+        if (i && j < 3) {
+          document.getElementsByClassName("post-image")[j++].src = URL.createObjectURL(i);
+        }
+      }
+    }
+
+    return (<>
+    <Header attachment={attachments[0]}/>
+    <div className="create-post-page-wrapper">
+    
+    <div className="create-post-page">
+    
+        <form id="create-scrap-form" action={url} method="POST" encType="multipart/form-data">
+
             <div className="upload">
               <div className="upload-text">
                 Upload Photos (Maximum of 5){" "}
@@ -72,6 +80,7 @@ export default function CreatePostPage() {
                 type="file"
                 className="file-upload"
                 multiple
+                onChange={changePreview}
               />
             </div>
 
