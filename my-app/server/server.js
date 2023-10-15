@@ -150,4 +150,17 @@ app.get("/postIdsFor/:userId", (req, res) => {
   }
 });
 
+
+//comment post request body format: {username, text}
+app.post("/addCommentTo/:postId", (res, req) => {
+  let comment = req.body;
+  let id = req.params.postId;
+
+  if(!posts[id].comments){
+    posts[id].comments = [];
+  }
+
+  posts[id].comments.push(comment);
+});
+
 app.listen(8080);
