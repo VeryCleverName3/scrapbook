@@ -60,10 +60,13 @@ export default function CreatePostPage() {
 
     return (<>
     <Header attachment={attachments[0]}/>
+    <div className="create-post-page-wrapper-wrapper">
+    <a href="/home"><p className="create-post-page-wrapper-wrapper-text">← Back</p></a>
+    
     <div className="create-post-page-wrapper">
     
     <div className="create-post-page">
-    
+      
         <form id="create-scrap-form" action={url} method="POST" encType="multipart/form-data">
 
             <div className="upload">
@@ -144,6 +147,7 @@ export default function CreatePostPage() {
             <input type="hidden" value={userNames} name="includedUsers"></input>
           </form>
         </div>
+      </div>
       </div>
     </>
   );

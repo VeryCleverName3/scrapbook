@@ -115,6 +115,7 @@ export default function LoginPanel() {
             </p>
           )}
         </div>
+        <h4> New to scrapbook? <a className="links" href="/signup">Join now</a></h4>
       </div>
     </>
   );

@@ -126,6 +126,9 @@ export default function SignUpPage() {
           >
             <b>Sign Up</b>
           </button>
+          
+            <div className="log-in-link"><h4> Already on scrapbook? <a className="links" href="/login">Log in</a></h4></div>
+
           {error && (
             <p
               style={{
@@ -138,7 +141,9 @@ export default function SignUpPage() {
               {error}
             </p>
           )}
+          
         </div>
+        
       </div>
     </>
   );
