@@ -52,6 +52,16 @@ export default function CreatePostPage(){
         document.getElementById("includedUsersInput").value = realVals;
       }
 
+    function changePreview(){
+      let files = document.getElementById("file-upload").files;
+      let j = 0;
+      for(let i of files){
+        if (i && j < 3) {
+          document.getElementsByClassName("post-image")[j++].src = URL.createObjectURL(i);
+        }
+      }
+    }
+
     return (<>
     <Header attachment={attachments[0]}/>
     <div className="create-post-page-wrapper">
@@ -73,6 +83,7 @@ export default function CreatePostPage(){
                 type="file"
                 className="file-upload"
                 multiple
+                onChange={changePreview}
               />
             </div>
 
