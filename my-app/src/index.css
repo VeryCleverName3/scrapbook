@@ -89,8 +89,7 @@ code {
 
 .tag-right-content {
   text-align: left;
-  color: #d5d1ff;
-  font-weight: 700;
+  color: #000000;
   font-size: 12px;
 }
 
@@ -98,7 +97,6 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-
   /* padding: none; */
 }
 
@@ -114,6 +112,7 @@ code {
   margin: 5%;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-radius: 15px;
 }
 
 .create-post-page p {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import "./StickyHeader.css";
 import "./index.css";
 export default function Header({ attachment, makePost }) {
   const [isSticky, setSticky] = useState(false);
