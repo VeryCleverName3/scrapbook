@@ -147,8 +147,10 @@ export default function Post({
             {detailed && description}
           </p>
         </div>
-        <div className="comment">
-          <p className="post-comment-text">Comment</p>
+        <div
+          className="new-comment"
+          style={{ display: "flex", gap: "5px", marginTop: "15px" }}
+        >
           <textarea
             name="content"
             form="create-scrap-form"
@@ -156,17 +158,27 @@ export default function Post({
             id="comment-textbox-id"
             value={newComment}
             onChange={handleCommentChange}
+            placeholder="Comment..."
           ></textarea>
-          <button onClick={handleCommentSubmit}>Submit</button>
-
-          {/* need fix map each username and comment sjhdbkaw */}
+          <button
+            onClick={handleCommentSubmit}
+            style={{
+              border: "none",
+              borderRadius: "50%",
+            }}
+          >
+            &gt;
+          </button>
+        </div>
+        {/* need fix map each username and comment sjhdbkaw */}
+        {detailed && (
           <div className="posted-comments">
             {console.log(comments2)}
             {comments2.map((comment) => (
               <Comment user={comment.username} comment={comment.text} />
             ))}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
