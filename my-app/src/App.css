@@ -110,6 +110,7 @@
 @media (min-width: 768px) {
   .post {
     min-width: 500px;
+    max-width: 40%;
   }
   .right-post-info {
     display: none;
