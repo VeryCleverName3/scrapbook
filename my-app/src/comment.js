@@ -1,11 +1,4 @@
-export default function Comment(user, comment) {
-  user = {
-    username: "uanand6",
-    profilePic:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80",
-  };
-  comment = "kjdfgdhnghdighsdfgidshgsg";
-
+export default function Comment({ user, comment }) {
   return (
     <>
       <div
@@ -23,9 +16,9 @@ export default function Comment(user, comment) {
         >
           <img
             style={{ height: "25px", width: "25px", borderRadius: "50%" }}
-            src={user.profilePic}
+            src="https://i.pinimg.com/736x/17/57/1c/17571cdf635b8156272109eaa9cb5900.jpg"
           ></img>
-          <h5 style={{ margin: "0px" }}>{user.username}</h5>
+          <h5 style={{ margin: "0px" }}>{user}</h5>
         </div>
         <p style={{ fontSize: "0.8em", margin: "0px", paddingTop: "4px" }}>
           {comment}

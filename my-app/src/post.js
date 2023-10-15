@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Tag from "./tag";
 import { useState } from "react";
+import Comment from "./comment";
 
 export default function Post({
   user,
@@ -11,9 +12,9 @@ export default function Post({
   attachments,
   description,
   tags,
-  index, 
-  postId, 
-  comments
+  index,
+  postId,
+  comments,
 }) {
   // Assuming you have a function to format date and time
   // let detailed = false;
@@ -48,34 +49,34 @@ export default function Post({
   };
   let backgroundColors = ["#E5BBFF", "#D5D1FF", "#D1E3FF"];
 
-
-
-  const [newComment, setNewComment] = useState('');
+  const [newComment, setNewComment] = useState("");
 
   const handleCommentChange = (e) => {
     setNewComment(e.target.value);
-
   };
 
   let [comments2, setComments] = useState([]);
-   comments2 = comments; 
+  comments2 = comments;
 
-  const  handleCommentSubmit = async () => {
+  const handleCommentSubmit = async () => {
     // setComments(comments2, comments);
-    if (newComment.trim() !== '') {
+    if (newComment.trim() !== "") {
       // setComments([...comments, newComment]); // Add the new comment to the comments array TODO: CHANGE
-      setNewComment(''); // Clear the input field after submitting the comment
+      setNewComment(""); // Clear the input field after submitting the comment
       console.log(newComment);
-    let res = await fetch(`http://${window.location.hostname}:8080/addCommentTo/${postId}`, {
-      method: "POST",
-      body: JSON.stringify({
-        username: localStorage.username,
-        text: newComment,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
+      let res = await fetch(
+        `http://${window.location.hostname}:8080/addCommentTo/${postId}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username: localStorage.username,
+            text: newComment,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
     }
 
     let postInfo = JSON.parse(
@@ -88,10 +89,6 @@ export default function Post({
     // console.log()
     // comments2 = postInfo.comments;
   };
-
-  
-
-
 
   return (
     <div
@@ -151,31 +148,25 @@ export default function Post({
           </p>
         </div>
         <div className="comment">
-              <p className="post-comment-text">Comment</p>
-              <textarea
-                name="content"
-                form="create-scrap-form"
-                className="comment-textbox"
-                id="comment-textbox-id"
-                value={newComment}
-                onChange={handleCommentChange}
-              ></textarea>
-              <button onClick={handleCommentSubmit}>Submit</button>
+          <p className="post-comment-text">Comment</p>
+          <textarea
+            name="content"
+            form="create-scrap-form"
+            className="comment-textbox"
+            id="comment-textbox-id"
+            value={newComment}
+            onChange={handleCommentChange}
+          ></textarea>
+          <button onClick={handleCommentSubmit}>Submit</button>
 
-{/* need fix map each username and comment sjhdbkaw */}
-              <div className="posted-comments">
-              {comments2.map((comment) => (
-                <div className="comment-item">
-                  {comment.text}
-                  {comment.username}
-              </div>
-                
-                
-                
-              ))}
-              </div>
+          {/* need fix map each username and comment sjhdbkaw */}
+          <div className="posted-comments">
+            {console.log(comments2)}
+            {comments2.map((comment) => (
+              <Comment user={comment.username} comment={comment.text} />
+            ))}
+          </div>
         </div>
-
       </div>
     </div>
   );
