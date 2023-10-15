@@ -41,7 +41,8 @@
 .post {
   padding: 10px;
   margin: 10px;
-  color: #474747;
+  color: #000000;
+  border-radius: 15px;
 }
 
 .post-header {
@@ -79,7 +80,7 @@
 
 .right-post-info p {
   font-size: 0.9rem;
-  color: #888;
+  color: #000000;
   margin: 0;
   text-align: right;
 }

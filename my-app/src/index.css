@@ -89,8 +89,7 @@ code {
 
 .tag-right-content {
   text-align: left;
-  color: #d5d1ff;
-  font-weight: 700;
+  color: #000000;
   font-size: 12px;
 }
 
@@ -100,13 +99,11 @@ code {
   justify-content: center;
 }
 
-
-
 .create-post-page-wrapper-wrapper-text {
   padding-left: 2%;
   margin-top: 7px;
   margin-bottom: -10px;
-  text-align: left; 
+  text-align: left;
   font-size: 15px;
   color: black;
   font-weight: 700;
@@ -128,6 +125,7 @@ code {
   margin: 5%;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-radius: 15px;
 }
 
 .create-post-page p {
