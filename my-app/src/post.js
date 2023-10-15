@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Tag from "./tag";
 import { useState } from "react";
+import Comment from "./comment";
 
 export default function Post({
   user,
@@ -103,6 +104,7 @@ export default function Post({
           </p>
         </div>
       </div>
+      <Comment user={"hello"} comment={"dksjfhuiahsgjas"} />
     </div>
   );
 }
