@@ -152,7 +152,7 @@ app.get("/postIdsFor/:userId", (req, res) => {
 
 
 //comment post request body format: {username, text}
-app.post("/addCommentTo/:postId", (res, req) => {
+app.post("/addCommentTo/:postId", (req, res) => {
   let comment = req.body;
   let id = req.params.postId;
 
@@ -163,6 +163,106 @@ app.post("/addCommentTo/:postId", (res, req) => {
   posts[id].comments.push(comment);
 
   res.send("ok...");
+});
+
+app.get("/scrapbook/:userId", (req, res) => {
+  let user = users[req.params.userId];
+
+  let postPhotos = [];
+  let seen = {};
+
+  for(let i of user.posts){
+    for(let j of i.photos){
+      if(!seen[j.url]){
+        postPhotos.push(j.url);
+        seen[j.url] = true;
+      }
+    }
+  }
+
+  let urls = [];
+  let ids = [];
+  while(ids.length < 4 && ids.length < postPhotos.length){
+    let num = ~~(Math.random() * postPhotos.length);
+    if(ids.indexOf(num) == -1){
+      ids.push(num);
+    }
+  }
+
+  for(let i of ids){
+    urls.push("http://localhost:8080/" + postPhotos[i]);
+  }
+
+
+//scale images to a fixed width, then crop with code :(
+
+  res.send(`
+  <head><style>
+    canvas{
+      height: 11in;
+      width: 8.5in;
+    }
+    img{
+      width: 200px;
+      height: 100px;
+      display: none;
+    }
+  </style></head>
+  <body>
+    <img id="img0" src=${urls[0]}>
+    <img id="img1" src=${urls[1]}>
+    <img id="img2" src=${urls[2]}>
+    <img id="img3" src=${urls[3]}>
+    <img id="tape" src="http://localhost/tape.png">
+    <img id="cover" src="http://localhost/cover.png">
+  </body>
+  <script>
+  setTimeout(()=>{
+    let urls = ${JSON.stringify(urls)};
+    let c = document.createElement("canvas");
+    document.body.append(c);
+
+    let ctx = c.getContext("2d");
+    let w = c.width = 8.5*window.innerHeight/5;
+    let h = c.height = 11*window.innerHeight/5;
+    let tape = document.getElementById("tape");
+    let cover = document.getElementById("cover");
+
+    ctx.fillStyle = "#eeccff";
+    ctx.fillRect(0,0,w,h);
+    ctx.fillStyle = "#ffe2c9";
+    ctx.fillRect(0,h/2,w,h/2);
+
+    let imgWidth = w/2 - w/8;
+
+    let imgs = [];
+    let scales = [];
+    let widths = [];
+    let imgCoords = [
+      [w/16,h/2 + 100],
+      [w/16,h*3/4+50],
+      [9*w/16,h/2+100],
+      [9*w/16,h*3/4+50]
+    ];
+    let tapeCoords = [
+      [0,h/2 + 25],
+      [0,h*3/4 - 25],
+      [8*w/16,h/2+25],
+      [8*w/16,h*3/4-25]
+    ]
+    for(let i = 0; i < 4; i++){
+      imgs.push(document.getElementById("img" + i));
+      scales[i] = imgWidth / imgs[i].width;
+      widths[i] = imgs[i].width;
+
+      ctx.drawImage(imgs[i],0,0,widths[i],widths[i]*5/8, ...imgCoords[i],imgWidth, imgWidth*5/8);
+      ctx.drawImage(tape, ...tapeCoords[i], w/2, w/2*5/8);
+    }
+    ctx.drawImage(cover, 0, 0, w/2, cover.height/cover.width*w/2)
+
+    window.print();
+  }, 100);
+  </script>`);
 });
 
 app.listen(8080);
