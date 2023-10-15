@@ -89,6 +89,13 @@ export default function MainPage() {
           tags.push({ username: j, profilePicture: defaultPicUrl });
         }
 
+        let comments = [];
+        if(postInfo.comments){
+          for(let j of postInfo.comments){
+            comments.push(j);
+          }
+        }
+
         posts.push(
           <Post
             user={userData}
@@ -98,6 +105,8 @@ export default function MainPage() {
             description={description}
             tags={tags}
             index={k}
+            postId={i}
+            comments={comments}
           />
         );
         k++;
