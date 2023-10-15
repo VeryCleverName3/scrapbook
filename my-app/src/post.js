@@ -3,7 +3,6 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Tag from "./tag";
 import { useState } from "react";
-import Comment from "./comment";
 
 export default function Post({
   user,
@@ -86,6 +85,7 @@ export default function Post({
     );
     setComments(comments2, postInfo.comments);
     window.location.reload();
+    // console.log()
     // comments2 = postInfo.comments;
   };
 
@@ -177,7 +177,6 @@ export default function Post({
         </div>
 
       </div>
-      <Comment user={"hello"} comment={"dksjfhuiahsgjas"} />
     </div>
   );
 }
