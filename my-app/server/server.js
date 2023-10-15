@@ -150,7 +150,7 @@ app.get("/postIdsFor/:userId", (req, res) => {
   }
 });
 
-app.post("/addCommentTo/:postId", (res, req) => {
+app.post("/addCommentTo/:postId", (req, res) => {
   let comment = req.body;
   let id = req.params.postId;
 
